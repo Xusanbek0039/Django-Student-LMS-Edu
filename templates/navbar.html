@@ -8,7 +8,7 @@
 
 			<form class="form-header" action="{% url 'query' %}" method="GET">
 				<input id="primary-search" class="form-control rounded-end-0" type="text" name="q" value="{{ request.GET.q }}"
-					placeholder="Search All... #course, #program, #Quiz, #News, #Events" required />
+					placeholder="Izlash..." required />
 				<button class="btn btn-dark rounded-start-0" type="submit">
 					<i class="fas fa-search"></i>
 				</button>
@@ -25,7 +25,7 @@
 						</div>
 	
 						<p class="small text-muted text-center mb-0">
-							Last login: {{ request.user.last_login|date }}</p>
+							So'ngi faollik: {{ request.user.last_login|date }}</p>
 					</div>
 					<hr>
 

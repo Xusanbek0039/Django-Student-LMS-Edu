@@ -25,7 +25,7 @@
                 <img src="{{ user.picture.url }}" class="w-100">
                 <ul class="px-2 list-unstyled">
                     <li>{{ user.get_full_name|title }}</li>
-                    <li><strong>Ro'yxatga olingan: </strong>{{ user.last_login|date }}</li>
+                    <li><strong>So'ngi faollik: </strong>{{ user.last_login|date }}</li>
                     <li><strong>Tabaqa: </strong>
                         {{ user.get_user_role }}
                     </li>
@@ -95,13 +95,13 @@
                 </div>
     
                 <hr>
-                <p class="fw-bold"><i class="fa fa-calendar-day"></i> Important Dates</p>
+                <p class="fw-bold"><i class="fa fa-calendar-day"></i> Kirish malumotlari</p>
                 <div class="dashboard-description">
-                    <p><strong>Last login:</strong> {{ user.last_login }}</p>
+                    <p><strong>Oxxirgi faollik:</strong> {{ user.last_login }}</p>
                     {% if current_semester and current_session %}
-                    <p><strong>Academic Year:</strong> {{ current_semester }} Semester {{ current_session }}</p>
+                    <p><strong>Academic yili:</strong> {{ current_semester }} Semester {{ current_session }}</p>
                     {% endif %}
-                    <p><strong>Registered Date:</strong> {{ user.date_joined|date }}</p>
+                    <p><strong>Royxatga olingan:</strong> {{ user.date_joined|date }}</p>
                 </div>
             </div>
         </div>

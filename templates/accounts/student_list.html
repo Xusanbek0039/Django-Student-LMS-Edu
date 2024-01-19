@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
-{% block title %}{{ title }} | Learning management system{% endblock title %}
+{% block title %}{{ title }} | Student LMS{% endblock title %}
 
 {% block content %}
 
 
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="/">Home</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Students</li>
+      <li class="breadcrumb-item"><a href="/">Bosh saxifa</a></li>
+      <li class="breadcrumb-item active" aria-current="page">O'quvchilar</li>
     </ol>
 </nav>
 
@@ -15,11 +15,11 @@
 
 {% if request.user.is_superuser %}
 <div class="manage-wrap">
-    <a class="btn btn-sm btn-primary" href="{% url 'add_student' %}"><i class="fas fa-plus"></i> Add Student</a>
+    <a class="btn btn-sm btn-primary" href="{% url 'add_student' %}"><i class="fas fa-plus"></i> O'quvchi qo'shish</a>
 </div>
 {% endif %}
 
-<div class="title-1"><i class="fas fa-user-graduate"></i>Students</div>
+<div class="title-1"><i class="fas fa-user-graduate"></i>O'quvchilar</div>
 <br>
 <br>
 {% if messages %}
@@ -42,13 +42,13 @@
     <table class="table">
         <thead>
             <tr>
-                <th>#</th>
-                <th> ID No. </th>
-                <th> Full Name </th>
-                <th> Email </th>
-                <th> Program </th>
+                <th>№</th>
+                <th> Foydalanuvchi nomi </th>
+                <th> Ism/Familiya </th>
+                <th> Email manzil</th>
+                <th> O'quv fani </th>
                 {% if request.user.is_superuser %}
-                <th> Action </th>
+                <th> Qo'shimcha </th>
                 {% endif %}
             </tr>
         </thead>
@@ -68,8 +68,8 @@
                             <i class="fa fa-ellipsis-vertical"></i>
                         </button>
                         <ul class="dropdown-menu position-fixed">
-                          <li><a class="dropdown-item" href="{% url 'student_edit' student.student.pk %}"><i class="fas fa-edit"></i> Update</a></li>
-                          <li><a class="dropdown-item text-danger" href="{% url 'student_delete' student.pk %}"><i class="fas fa-trash-alt"></i> Delete</a></li>
+                          <li><a class="dropdown-item" href="{% url 'student_edit' student.student.pk %}"><i class="fas fa-edit"></i> Taxrirlash</a></li>
+                          <li><a class="dropdown-item text-danger" href="{% url 'student_delete' student.pk %}"><i class="fas fa-trash-alt"></i> O'chirish</a></li>
                         </ul>
                       </div>
                 </td>
@@ -79,11 +79,11 @@
                 <tr>
                   <td colspan="6">
                   <span class="text-danger">
-                    No Student.
+                    O'quvchi mavjud emas!
                     {% if request.user.is_superuser %}
                     <a href="{% url 'add_student' %}">
                     <i class="primary" style="font-size: 22px;">
-                       Add Student Now.
+                       Yangi o'quvchi qo'shish
                     </i>
                     {% endif %}
                     </a>

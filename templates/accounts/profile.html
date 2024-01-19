@@ -66,32 +66,32 @@
                     {% endfor %}
                 </ul>
                 {% else %}
-                <div class="text-danger">No courses assigned!</div>
+                <div class="text-danger">Hech qanday kursga tayinlanmagan!</div>
                 {% endif %}
                 <hr>
                 {% endif %}
     
                 <p class="fw-bold"><i class="fas fa-user"></i> Shaxsiy ma'lumotlar</p>
                 <div class="dashboard-description">
-                    <p><strong>First Name:</strong> {{ user.first_name|title }}</p>
-                    <p><strong>Last Name:</strong> {{ user.last_name|title }}</p>
-                    <p><strong>ID No.:</strong> {{ user.username }}</p>
+                    <p><strong>Ismi:</strong> {{ user.first_name|title }}</p>
+                    <p><strong>Familiyasi:</strong> {{ user.last_name|title }}</p>
+                    <p><strong>Foydalanuvchi nomi:</strong> {{ user.username }}</p>
                 </div>
                 {% if user.is_student %}
                 <hr>
                 <p class="fw-bold"><i class="fas fa-graduation-cap"></i> Applicant Info</p>
                 <div class="dashboard-description">
-                    <p><strong>School: </strong>Hawas Preparatory School</p>
-                    <p><strong>Level: </strong>{{ level.level }}</p>
+                    <p><strong>O'quv markaz: </strong>IT Creative Educations Schole</p>
+                    <p><strong>Daraja: </strong>{{ level.level }}</p>
                 </div>
                 {% endif %}
     
                 <hr>
-                <p class="fw-bold"><i class="fas fa-phone-square-alt"></i> Contact Info</p>
+                <p class="fw-bold"><i class="fas fa-phone-square-alt"></i> A'loqa malumotlar</p>
                 <div class="dashboard-description">
-                    <p><strong>Email:</strong> {{ user.email }}</p>
+                    <p><strong>Email manzl:</strong> {{ user.email }}</p>
                     <p><strong>Tel No.:</strong> {{ user.phone }}</p>
-                    <p><strong>Address/city:</strong> {{ user.address }}</p>
+                    <p><strong>Yashash joy manzil:</strong> {{ user.address }}</p>
                 </div>
     
                 <hr>

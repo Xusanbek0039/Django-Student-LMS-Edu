@@ -30,8 +30,8 @@
 					<hr>
 
 					{% if request.user.is_lecturer or request.user.is_student %}
-					<a class="dropdown-item" href="{% url 'user_course_list' %}"><i class="fas fa-book me-2"></i>My
-						Courses</a>
+					<a class="dropdown-item" href="{% url 'user_course_list' %}"><i class="fas fa-book me-2"></i>Mening
+						Kurslarim</a>
 					{% endif %}
 
 					{% if request.user.is_superuser %}
@@ -39,12 +39,12 @@
 						Panel</a>
 					{% endif %}
 
-					<a class="dropdown-item" href="{% url 'profile' %}"><i class="fas fa-user me-2"></i>Profile</a>
-					<a class="dropdown-item" href="{% url 'edit_profile' %}"><i class="fas fa-cog me-2"></i>Setting</a>
+					<a class="dropdown-item" href="{% url 'profile' %}"><i class="fas fa-user me-2"></i>Shaxsiy hisob</a>
+					<a class="dropdown-item" href="{% url 'edit_profile' %}"><i class="fas fa-cog me-2"></i>Sozlamalar</a>
 					<hr>
 					<div style="display: flex; justify-content: center; align-items: center;">
 						<a class="btn btn-secondary" href="{% url 'logout' %}">
-							<i class="fas fa-sign-out-alt"></i> Signout
+							<i class="fas fa-sign-out-alt"></i> Tizimdan chiqish
 						</a>
 					</div>
 				</div>

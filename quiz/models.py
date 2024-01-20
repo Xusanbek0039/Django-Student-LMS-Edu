@@ -20,15 +20,15 @@ from course.models import Course
 from .utils import *
 
 CHOICE_ORDER_OPTIONS = (
-    ("content", _("Content")),
-    ("random", _("Random")),
-    ("none", _("None")),
+    ("content", _("Tartib bo'yich")),
+    ("random", _("Aralashtirish")),
+    ("none", _("Nomalum")),
 )
 
 CATEGORY_OPTIONS = (
-    ("assignment", _("Assignment")),
-    ("exam", _("Exam")),
-    ("practice", _("Practice Quiz")),
+    ("assignment", _("Tajriba oshirish")),
+    ("exam", _("Oraliq testi")),
+    ("practice", _("Amaliyot test")),
 )
 
 

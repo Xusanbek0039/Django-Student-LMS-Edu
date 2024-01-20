@@ -90,7 +90,7 @@ def quiz_delete(request, slug, pk):
     quiz = Quiz.objects.get(pk=pk)
     course = Course.objects.get(slug=slug)
     quiz.delete()
-    messages.success(request, f"successfuly deleted.")
+    messages.success(request, f"muvafaqiyatli o'chirildi.")
     return redirect("quiz_index", quiz.course.slug)
 
 

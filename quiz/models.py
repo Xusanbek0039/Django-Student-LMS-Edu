@@ -451,8 +451,8 @@ class Question(models.Model):
     content = models.CharField(
         max_length=1000,
         blank=False,
-        help_text=_("Enter the question text that you want displayed"),
-        verbose_name=_("Question"),
+        help_text=_("Ko'rinishi kerak bo'lgan savol matnini kiriting:"),
+        verbose_name=_("Savol kiriting"),
     )
     explanation = models.TextField(
         max_length=2000,

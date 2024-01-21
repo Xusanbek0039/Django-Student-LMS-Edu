@@ -445,7 +445,7 @@ class Question(models.Model):
         upload_to="uploads/%Y/%m/%d",
         blank=True,
         null=True,
-        verbose_name=_("Figure"),
+        verbose_name=_("Rasm yuklashingiz mumkin:"),
         help_text=_("Agar kerak bo'lsa, savol uchun rasm qo'shing."),
     )
     content = models.CharField(

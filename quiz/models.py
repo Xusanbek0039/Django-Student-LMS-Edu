@@ -245,7 +245,7 @@ class SittingManager(models.Manager):
 
         if len(question_set) == 0:
             raise ImproperlyConfigured(
-                "Question set of the quiz is empty. Please configure questions properly"
+                "Viktorinaning savollar to'plami bo'sh. Iltimos, savollarni to'g'ri sozlang!"
             )
 
         # if quiz.max_questions and quiz.max_questions < len(question_set):

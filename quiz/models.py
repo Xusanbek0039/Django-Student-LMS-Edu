@@ -61,7 +61,7 @@ class Quiz(models.Model):
     random_order = models.BooleanField(
         blank=False,
         default=False,
-        verbose_name=_("Tasodifiy buyurtma"),
+        verbose_name=_("Tasodifiy testlar"),
         help_text=_("Savollarni tasodifiy tartibda yoki belgilangan tartibda ko'rsatilsimni?"),
     )
 
@@ -80,17 +80,17 @@ class Quiz(models.Model):
     exam_paper = models.BooleanField(
         blank=False,
         default=False,
-        verbose_name=_("Exam Paper"),
+        verbose_name=_("Imtihon qog'ozi"),
         help_text=_(
-            "If yes, the result of each attempt by a user will be stored. Necessary for marking."
+            "Ha bo'lsa, foydalanuvchining har bir urinishining natijasi saqlanadi. Belgilash foydali bo'lishi mumkin."
         ),
     )
 
     single_attempt = models.BooleanField(
         blank=False,
         default=False,
-        verbose_name=_("Single Attempt"),
-        help_text=_("If yes, only one attempt by a user will be permitted."),
+        verbose_name=_("Yagona urinish"),
+        help_text=_("Ha bo'lsa, foydalanuvchining faqat bitta urinishiga ruxsat beriladi."),
     )
 
     pass_mark = models.SmallIntegerField(
@@ -104,9 +104,9 @@ class Quiz(models.Model):
     draft = models.BooleanField(
         blank=True,
         default=False,
-        verbose_name=_("Draft"),
+        verbose_name=_("Qoralama"),
         help_text=_(
-            "If yes, the quiz is not displayed in the quiz list and can only be taken by users who can edit quizzes."
+            "Ha bo'lsa, viktorina viktorina ro'yxatida ko'rsatilmaydi va uni faqat viktorinalarni tahrir qila oladigan foydalanuvchilar olishi mumkin."
         ),
     )
 

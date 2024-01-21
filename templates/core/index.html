@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}{{ title }} | Learning management system{% endblock title %}
+{% block title %}{{ title }} | Student LMS{% endblock title %}
 {% load static %}
 
 {% block content %}
@@ -30,13 +30,13 @@
 
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item active" aria-current="page">Home</li>
+      <li class="breadcrumb-item active" aria-current="page">Bosh saxifa</li>
     </ol>
 </nav>
 
 {% if request.user.is_superuser %}
 <div class="manage-wrap">
-    <a class="btn btn-primary" href="{% url 'add_item' %}"><i class="fas fa-plus"></i> Add New Post</a>
+    <a class="btn btn-primary" href="{% url 'add_item' %}"><i class="fas fa-plus"></i> Yangi post joylash</a>
 </div>
 {% endif %}
 
@@ -55,15 +55,15 @@
 {% endif %}
 
 <div>
-    <div class="title-1">News &amp; Events</div>
+    <div class="title-1">Yangilik &amp; Voqelik</div>
 </div>
 
 <div class="col-md-2 ms-auto d-flex">
     <div class="me-3">
-        <span class="color-indicator bg-primary"></span> News
+        <span class="color-indicator bg-primary"></span> Yangilik
     </div>
     <div>
-        <span class="color-indicator bg-purple"></span> Events
+        <span class="color-indicator bg-purple"></span> Voqelik
     </div>
 </div>
 
@@ -84,9 +84,9 @@
                         </button>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{% url 'edit_post' pk=item.id %}"><i
-                                    class="fas fa-pencil-alt"></i> Edit</a>
+                                    class="fas fa-pencil-alt"></i> Taxrirlash</a>
                             <a class="dropdown-item" href="{% url 'delete_post' pk=item.id %}"><i
-                                    class="fas fa-trash-alt"></i> Delete</a>
+                                    class="fas fa-trash-alt"></i> O'chirish</a>
                         </div>
                     </div>
                     {% endif %}
@@ -96,7 +96,7 @@
 
                 <div class="date-wrapper">
                     <i class="fa fa-calendar mr-2"></i>
-                    {{ item.updated_date|timesince }} ago
+                    {{ item.updated_date|timesince }} oldin
                 </div>
 
             </div>
@@ -106,7 +106,7 @@
 
     {% else %}
     <h4 class="text-center mt-5 py-5 text-muted">
-        <i class="fa-regular fa-folder-open me-2"></i> School news and events will appear here.
+        <i class="fa-regular fa-folder-open me-2"></i> O'quv markaz yangiliklari hamda voqealari shu yerda poch etiladi!
     </h4>
 
     {% endif %}

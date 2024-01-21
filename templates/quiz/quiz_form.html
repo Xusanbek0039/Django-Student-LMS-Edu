@@ -14,7 +14,7 @@
     </ol>
 </nav>
 
-<div class="title-1">Quiz form for {{ course|truncatechars:15 }}</div>
+<div class="title-1">{{ course|truncatechars:15 }}- fandan test tuzish</div>
 <br><br>
 
 <div class="container">
@@ -51,7 +51,7 @@
                         <div hidden>
                             <label for="questions">{{ form.questions.label }}</label><br> {{ form.questions }}
                             <span class="danger">{{ form.questions.errors }}</span>
-                            <small class="d-block text-muted">Hold down "Control", or "Command" on a Mac, to select more than one.</small>
+                            <small class="d-block text-muted">Bir nechtasini tanlash uchun Mac-da “Boshqarish” yoki “Buyruq” tugmasini bosib turing.</small>
                         </div>
                         {{ form.random_order|as_crispy_field }}                    
                         {{ form.answers_at_end|as_crispy_field }}                    
@@ -62,7 +62,7 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-primary my-4" id="{% if form.is_valid %}btn-transition{% endif %}" type="submit">Save &amp; Continue</button>
+        <button class="btn btn-primary my-4" id="{% if form.is_valid %}btn-transition{% endif %}" type="submit">Saqlash &amp; Davom ettirish</button>
     </form>
 </div>
 

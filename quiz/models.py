@@ -53,7 +53,7 @@ class Quiz(models.Model):
     title = models.CharField(verbose_name=_("Title"), max_length=60, blank=False)
     slug = models.SlugField(blank=True, unique=True)
     description = models.TextField(
-        verbose_name=_("Description"),
+        verbose_name=_("Tavsif"),
         blank=True,
         help_text=_("Viktorinaning batafsil tavsifi."),
     )
@@ -61,7 +61,7 @@ class Quiz(models.Model):
     random_order = models.BooleanField(
         blank=False,
         default=False,
-        verbose_name=_("Random Order"),
+        verbose_name=_("Tasodifiy buyurtma"),
         help_text=_("Savollarni tasodifiy tartibda yoki belgilangan tartibda ko'rsatilsimni?"),
     )
 
@@ -71,7 +71,7 @@ class Quiz(models.Model):
     answers_at_end = models.BooleanField(
         blank=False,
         default=False,
-        verbose_name=_("Answers at end"),
+        verbose_name=_("Javoblar oxirida"),
         help_text=_(
             "Correct answer is NOT shown after question. Answers displayed at the end."
         ),

@@ -34,17 +34,17 @@
             <div class="col mx-3 py-4 border bg-white">
                 {{ form.choice_order|as_crispy_field }}
                 <div class="border p-2">
-                    <label class="lead">Choices</label>
+                    <label class="lead">To'gri javobni tanlang:</label>
                 {{ formset.management_form }}
                 {% for fs in formset %}
                     <label for="username">{{ fs.label }}</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text">{{ fs.correct }} <small class="ml-1">Correct</small></span>
+                            <span class="input-group-text">{{ fs.correct }} <small class="ml-1">Belgilang</small></span>
                         </div>
                         {{ fs.choice }}
                         <div class="input-group-prepend">
-                            <span class="input-group-text">{{ fs.DELETE }} <small class="ml-1">Delete</small></span>
+                            <span class="input-group-text">{{ fs.DELETE }} <small class="ml-1">O'chirish</small></span>
                         </div>
                     </div>
                 {% endfor %}

@@ -4,7 +4,7 @@ from django.db import transaction
 from .models import NewsAndEvents, Session, Semester, SEMESTER
 
 
-# news and events
+# yangilik hamda voqelik uchun
 class NewsAndEventsForm(forms.ModelForm):
     class Meta:
         model = NewsAndEvents

@@ -9,14 +9,14 @@ from .forms import SessionForm, SemesterForm, NewsAndEventsForm
 from .models import *
 
 
-# ########################################################
-# News & Events
-# ########################################################
+
+# Yangilik va voqelar uchun 
+
 @login_required
 def home_view(request):
     items = NewsAndEvents.objects.all().order_by("-updated_date")
     context = {
-        "title": "News & Events",
+        "title": "Yangiliklar",
         "items": items,
     }
     return render(request, "core/index.html", context)
@@ -30,17 +30,17 @@ def post_add(request):
         if form.is_valid():
             form.save()
 
-            messages.success(request, (title + " has been uploaded."))
+            messages.success(request, (title + " yuklangan."))
             return redirect("home")
         else:
-            messages.error(request, "Please correct the error(s) below.")
+            messages.error(request, "Quyidagi xato(lar)ni tuzating.")
     else:
         form = NewsAndEventsForm()
     return render(
         request,
         "core/post_add.html",
         {
-            "title": "Add Post",
+            "title": "Post joylash",
             "form": form,
         },
     )
@@ -56,17 +56,17 @@ def edit_post(request, pk):
         if form.is_valid():
             form.save()
 
-            messages.success(request, (title + " has been updated."))
+            messages.success(request, (title + " yangilandi."))
             return redirect("home")
         else:
-            messages.error(request, "Please correct the error(s) below.")
+            messages.error(request, "Quyidagi xato(lar)ni tuzating.")
     else:
         form = NewsAndEventsForm(instance=instance)
     return render(
         request,
         "core/post_add.html",
         {
-            "title": "Edit Post",
+            "title": "Post taxrirlash",
             "form": form,
         },
     )
@@ -78,17 +78,17 @@ def delete_post(request, pk):
     post = get_object_or_404(NewsAndEvents, pk=pk)
     title = post.title
     post.delete()
-    messages.success(request, (title + " has been deleted."))
+    messages.success(request, (title + " "))
     return redirect("home")
 
 
-# ########################################################
-# Session
-# ########################################################
+
+# Sessiyalar uchun
+
 @login_required
 @lecturer_required
 def session_list_view(request):
-    """Show list of all sessions"""
+    
     sessions = Session.objects.all().order_by("-is_current_session", "-session")
     return render(request, "core/session_list.html", {"sessions": sessions})
 
@@ -96,7 +96,7 @@ def session_list_view(request):
 @login_required
 @lecturer_required
 def session_add_view(request):
-    """check request method, if POST we add session otherwise show empty form"""
+
     if request.method == "POST":
         form = SessionForm(request.POST)
         if form.is_valid():
@@ -117,7 +117,7 @@ def session_add_view(request):
                     form.save()
             else:
                 form.save()
-            messages.success(request, "Session added successfully. ")
+            messages.success(request, "Sessiya muvafaqiyatli qo'shildi!")
             return redirect("session_list")
 
     else:
@@ -143,13 +143,13 @@ def session_update_view(request, pk):
 
             if form.is_valid():
                 form.save()
-                messages.success(request, "Session updated successfully. ")
+                messages.success(request, "Sessiya muvafaqiyatli yangilandi!")
                 return redirect("session_list")
         else:
             form = SessionForm(request.POST, instance=session)
             if form.is_valid():
                 form.save()
-                messages.success(request, "Session updated successfully. ")
+                messages.success(request, "Sessiya muvafaqiyatli yangilandi! ")
                 return redirect("session_list")
 
     else:
@@ -163,20 +163,22 @@ def session_delete_view(request, pk):
     session = get_object_or_404(Session, pk=pk)
 
     if session.is_current_session:
-        messages.error(request, "You cannot delete current session")
+        messages.error(request, "Joriy sessiyani oʻchira olmaysiz")
         return redirect("session_list")
     else:
         session.delete()
-        messages.success(request, "Session successfully deleted")
+        messages.success(request, "Sessiya muvaffaqiyatli o'chirildi!")
     return redirect("session_list")
 
 
-# ########################################################
 
 
-# ########################################################
-# Semester
-# ########################################################
+
+
+
+
+
+
 @login_required
 @lecturer_required
 def semester_list_view(request):

@@ -20,7 +20,7 @@ from course.models import Course
 from .utils import *
 
 CHOICE_ORDER_OPTIONS = (
-    ("content", _("Tartib bo'yich")),
+    ("content", _("Tartib bo'yicha")),
     ("random", _("Aralashtirish")),
     ("none", _("Nomalum")),
 )
@@ -55,14 +55,14 @@ class Quiz(models.Model):
     description = models.TextField(
         verbose_name=_("Description"),
         blank=True,
-        help_text=_("A detailed description of the quiz"),
+        help_text=_("Viktorinaning batafsil tavsifi."),
     )
     category = models.TextField(choices=CATEGORY_OPTIONS, blank=True)
     random_order = models.BooleanField(
         blank=False,
         default=False,
         verbose_name=_("Random Order"),
-        help_text=_("Display the questions in a random order or as they are set?"),
+        help_text=_("Savollarni tasodifiy tartibda yoki belgilangan tartibda ko'rsatilsimni?"),
     )
 
     # max_questions = models.PositiveIntegerField(blank=True, null=True, verbose_name=_("Max Questions"),

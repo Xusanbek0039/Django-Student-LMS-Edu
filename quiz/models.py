@@ -446,7 +446,7 @@ class Question(models.Model):
         blank=True,
         null=True,
         verbose_name=_("Figure"),
-        help_text=_("Add an image for the question if it's necessary."),
+        help_text=_("Agar kerak bo'lsa, savol uchun rasm qo'shing."),
     )
     content = models.CharField(
         max_length=1000,

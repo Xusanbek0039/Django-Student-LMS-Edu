@@ -73,7 +73,7 @@ class Quiz(models.Model):
         default=False,
         verbose_name=_("Javoblar oxirida"),
         help_text=_(
-            "Correct answer is NOT shown after question. Answers displayed at the end."
+            "To'g'ri javob savoldan keyin ko'rsatilmaydi. Javoblar oxirida ko'rsatiladi."
         ),
     )
 
@@ -96,9 +96,9 @@ class Quiz(models.Model):
     pass_mark = models.SmallIntegerField(
         blank=True,
         default=50,
-        verbose_name=_("Pass Mark"),
+        verbose_name=_("Max ball"),
         validators=[MaxValueValidator(100)],
-        help_text=_("Percentage required to pass exam."),
+        help_text=_("Imtihondan o'tish uchun talab qilinadigan foiz."),
     )
 
     draft = models.BooleanField(

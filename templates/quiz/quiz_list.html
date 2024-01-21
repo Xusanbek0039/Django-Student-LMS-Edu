@@ -18,7 +18,7 @@
 
 {% if request.user.is_superuser or request.user.is_lecturer %}
 <div class="manage-wrap">
-    <a class="btn btn-primary" href="{% url 'quiz_create' course.slug %}"><i class="fas fa-plus"></i> Add Quiz</a>
+    <a class="btn btn-primary" href="{% url 'quiz_create' course.slug %}"><i class="fas fa-plus"></i> Test tuzish</a>
 </div>
 {% endif %}
 
@@ -37,7 +37,7 @@
                 <div class="d-flex justify-content-between align-items-center text-success mb-4">
                     <em class="text-left">{{ quiz.category|title }} Quiz</em>
                     <div class="text-right text-light bg-danger px-2 small rounded">
-                        {{ quiz.get_questions.count }} Questions
+                        Test soni-{{ quiz.get_questions.count }} 
                     </div>
                 </div>
 
@@ -50,7 +50,7 @@
                 {% endif %}
 
                 {% if quiz.single_attempt %}
-                <p class="p-2 bg-light-warning small">{% trans "You will only get one attempt at this quiz" %}.</p>
+                <p class="p-2 bg-light-warning small">{% trans "E'slatma: Siz bu viktorinada faqat bitta urinishga ega bo'lasiz!" %}.</p>
                 {% endif %}
 
                 <div class="d-flex align-items-center">

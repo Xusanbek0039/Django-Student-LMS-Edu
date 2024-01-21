@@ -457,8 +457,8 @@ class Question(models.Model):
     explanation = models.TextField(
         max_length=2000,
         blank=True,
-        help_text=_("Explanation to be shown after the question has been answered."),
-        verbose_name=_("Explanation"),
+        help_text=_("Majburiy emas. Ammo savolingiz anchayin murakkab bo'lsa ushbu bo'limdan foydalanishingiz foydalanuvchilarga anchayin ast qotishi mumkin"),
+        verbose_name=_("Savol haqida"),
     )
 
     objects = InheritanceManager()
@@ -478,9 +478,9 @@ class MCQuestion(Question):
         blank=True,
         choices=CHOICE_ORDER_OPTIONS,
         help_text=_(
-            "The order in which multichoice choice options are displayed to the user"
+            "Ushbu bo'limda siz savol qay tarzda foydalanuvchilarga uzatilishini taminlaysiz!"
         ),
-        verbose_name=_("Choice Order"),
+        verbose_name=_("Savol turinini tanlang"),
     )
 
     def check_if_correct(self, guess):

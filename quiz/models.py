@@ -541,7 +541,7 @@ class Choice(models.Model):
 
     class Meta:
         verbose_name = _("Choice")
-        verbose_name_plural = _("Choices")
+        verbose_name_plural = _("To'g'ri javobni tanlang:")
 
 
 class EssayQuestion(Question):

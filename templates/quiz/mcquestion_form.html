@@ -5,23 +5,23 @@
 
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item"><a href="{% url 'programs' %}">Programs</a></li>
+        <li class="breadcrumb-item"><a href="/">Bosh saxifa</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'programs' %}">Fanlar</a></li>
         <li class="breadcrumb-item"><a href="{% url 'program_detail' course.program.id %}">{{ course.program }}</a></li>
         <li class="breadcrumb-item"><a href="{{ course.get_absolute_url }}">{{ course }}</a></li>
-        <li class="breadcrumb-item"><a href="{% url 'quiz_index' course.slug %}">Quizzes</a></li>
-        <li class="breadcrumb-item active" aria-current="page">MC Question Form</li>
+        <li class="breadcrumb-item"><a href="{% url 'quiz_index' course.slug %}">Testlar</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Test tuzish bo'limi</li>
     </ol>
 </nav>
 
-<div class="title-1">Add questions [{{ quiz_obj|truncatechars:15 }}]</div>
+<div class="title-1">Yangi test [{{ quiz_obj|truncatechars:15 }}]</div>
 <br><br>
 
 <div class="container">
-    <div class="info-text bg-orange mb-3">{{ quizQuestions }} question added</div>
+    <div class="info-text bg-orange mb-3">{{ quizQuestions }} savol qo'shildi</div>
 
     <form action="#" method="POST">{% csrf_token %}
-        {% if form.errors %}<p class="alert alert-danger">Correct the error(s) below.</p>{% endif %}
+        {% if form.errors %}<p class="alert alert-danger">Quyidagi xato(lar)ni tuzating.</p>{% endif %}
         <div class="row">
             <div class="col mx-3 py-4 border bg-white">
                 <div class="mb-2" hidden>

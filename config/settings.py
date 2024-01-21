@@ -2,22 +2,19 @@
 
 import os
 
-
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# Base dir
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
+# Yashirin kalit hamda debug turi
+SECRET_KEY = "kagbsckldsvsd35v41asdv241dsvdsv"
+DEBUG = True
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = True
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'dsjvbsdvsd56v41ds5v564ds1ds56v4ds56v47dsvdsv'
-
+# Domen kiriting
 ALLOWED_HOSTS = ["*"]
 
-# change the default user models to our custom model
+
+# Tekshiruv uchun yo'l
 AUTH_USER_MODEL = "accounts.User"
 
 # Application definition

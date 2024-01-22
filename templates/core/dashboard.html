@@ -268,12 +268,12 @@
 	</div>
 	<div class="col-md-6 p-2">
 		<div class="card w-100 h-100 p-3">
-			<h5>Latest activities</h5>
+			<h5>Eng so'nggi harakatlar</h5>
 			<ul class="ps-2 small">
 				{% for log in logs %}d-flex 
 				<li>{{ log.message }} <span class="text-muted">- {{ log.created_at }}</span></li>
 				{% empty %}
-				<li>No recent activity</li>
+				<li>Yaqinda hech qanday harakat yoʻq</li>
 				{% endfor %}
 			</ul>
 		</div>
@@ -281,7 +281,7 @@
 </div>
 <br>
 <div class="bg-white p-3">
-	<h5 class="border-bottom pb-2">School Demographics</h5>
+	<h5 class="border-bottom pb-2">Maktab demografiyasi</h5>
 	<div class="row">
 		<div class="col-md-4">
 			<i class="fas fa-expand-alt"></i>
@@ -309,10 +309,10 @@
 
 		// Setup
 		const labels = [
-			'January',
-			'February',
-			'March',
-			'April',
+			'Yanvar',
+			'Fevral',
+			'Mart',
+			'Aprel',
 			'May',
 			'June',
 		];

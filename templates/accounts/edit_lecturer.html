@@ -9,11 +9,11 @@
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/">Bosh saxifa</a></li>
       <li class="breadcrumb-item"><a href="{% url 'lecturer_list' %}">O'qituvchi</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Yangilash</li>
+      <li class="breadcrumb-item active" aria-current="page">Taxrirlash</li>
     </ol>
 </nav>
 
-<div class="title-1"><i class="fas fa-cogs"></i>Lecturer Update Form</div>
+<div class="title-1"><i class="fas fa-cogs"></i>O'qituvchi malumotlarini taxrirlash</div>
 <br>
 <br>
 
@@ -23,7 +23,7 @@
     <div class="row mb-3">
         <div class="col-md-6">
             <div class="card">
-                <p class="form-title">Email &amp; Personal Info</p>
+                <p class="form-title">Pochta &amp; Qo'shimcha malumotlar</p>
                 <div class="card-body">
                     {{ form.email|as_crispy_field }}
                     {{ form.first_name|as_crispy_field }}
@@ -42,6 +42,6 @@
             </div>
         </div>
     </div>
-    <input class="btn btn-primary" type="submit" value="Save">
+    <input class="btn btn-primary" type="submit" value="Saqlash">
 </form>
 {% endblock content %}

@@ -251,7 +251,7 @@ class ProfileUpdateForm(UserChangeForm):
                 "class": "form-control",
             }
         ),
-        label="Email Address",
+        label="Pochta",
     )
 
     first_name = forms.CharField(
@@ -261,7 +261,7 @@ class ProfileUpdateForm(UserChangeForm):
                 "class": "form-control",
             }
         ),
-        label="First Name",
+        label="Ism",
     )
 
     last_name = forms.CharField(
@@ -271,7 +271,7 @@ class ProfileUpdateForm(UserChangeForm):
                 "class": "form-control",
             }
         ),
-        label="Last Name",
+        label="Familiya",
     )
 
     phone = forms.CharField(
@@ -281,7 +281,7 @@ class ProfileUpdateForm(UserChangeForm):
                 "class": "form-control",
             }
         ),
-        label="Phone No.",
+        label="Telefon nomer",
     )
 
     address = forms.CharField(
@@ -291,7 +291,7 @@ class ProfileUpdateForm(UserChangeForm):
                 "class": "form-control",
             }
         ),
-        label="Address / city",
+        label="Manzil",
     )
 
     class Meta:
@@ -303,7 +303,7 @@ class EmailValidationOnForgotPassword(PasswordResetForm):
     def clean_email(self):
         email = self.cleaned_data["email"]
         if not User.objects.filter(email__iexact=email, is_active=True).exists():
-            msg = "There is no user registered with the specified E-mail address. "
+            msg = ""
             self.add_error("email", msg)
             return email
 

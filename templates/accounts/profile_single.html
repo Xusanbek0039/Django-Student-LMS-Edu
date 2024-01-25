@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %} {{ title }} | Learning management system{% endblock title %}
+{% block title %} {{ title }} | Student LMS{% endblock title %}
 
 {% load static %}
 {% load i18n %}
@@ -10,7 +10,7 @@
 
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item"><a href="/">Bosh saxifa</a></li>
       <li class="breadcrumb-item active" aria-current="page">{{ user.get_full_name }}</li>
     </ol>
 </nav>
@@ -25,8 +25,8 @@
                 <img src="{{ user.picture.url }}" class="w-100">
                 <ul class="px-2 list-unstyled">
                     <li>{{ user.get_full_name|title }}</li>
-                    <li><strong>Last login: </strong>{{ user.last_login|date }}</li>
-                    <li><strong>Role: </strong>
+                    <li><strong>So'ngi faollik: </strong>{{ user.last_login|date }}</li>
+                    <li><strong>Tabaqa: </strong>
                         {{ user.get_user_role }}
                     </li>
                 </ul>
@@ -36,12 +36,12 @@
             <div class="btn-flex">
                 {% if user.is_student %}
                 <a class="edit-btn" href="{% url 'student_edit' pk=user.id %}">
-                    <i class="fas fa-user-edit"></i><span class="mobile-hide">Edit Profile</span>
+                    <i class="fas fa-user-edit"></i><span class="mobile-hide">Hisobni taxrirlash</span>
                 </a>
                 {% endif %}
                 {% if user.is_lecturer %}
                 <a class="edit-btn" href="{% url 'staff_edit' pk=user.id %}">
-                    <i class="fas fa-user-edit"></i><span class="mobile-hide">Edit Profile</span>
+                    <i class="fas fa-user-edit"></i><span class="mobile-hide">Hisobni taxrirlash</span>
                 </a>
                 {% endif %}
             </div>
@@ -68,7 +68,7 @@
                 {% endif %} -->
     
                 {% if user.is_lecturer %}
-                <p class="fw-bold"><i class="fas fa-book-open"></i> My Courses</p>
+                <p class="fw-bold"><i class="fas fa-book-open"></i> Mening kurslarim</p>
                 {% if courses %}
                 <ul>
                     {% for course in courses %}
@@ -76,42 +76,42 @@
                     {% endfor %}
                 </ul>
                 {% else %}
-                <div class="text-danger">No courses assigned!</div>
+                <div class="text-danger">Hech qanday kursga tayinlanmagan!</div>
                 {% endif %}
                 <hr>
                 {% endif %}
     
-                <p class="fw-bold"><i class="fas fa-user"></i> Personal Info</p>
+                <p class="fw-bold"><i class="fas fa-user"></i> Shaxsiy ma'lumotlar</p>
                 <div class="dashboard-description">
-                    <p><strong>First Name:</strong> {{ user.first_name|title }}</p>
-                    <p><strong>Last Name:</strong> {{ user.last_name|title }}</p>
-                    <p><strong>ID No.:</strong> {{ user.username }}</p>
+                    <p><strong>Ism:</strong> {{ user.first_name|title }}</p>
+                    <p><strong>Familiya:</strong> {{ user.last_name|title }}</p>
+                    <p><strong>Foydalanuvchi nomi:</strong> {{ user.username }}</p>
                 </div>
                 {% if user.is_student %}
                 <hr>
-                <p class="fw-bold"><i class="fas fa-graduation-cap"></i> Applicant Info</p>
+                <p class="fw-bold"><i class="fas fa-graduation-cap"></i> Ariza beruvchi haqida ma'lumot</p>
                 <div class="dashboard-description">
-                    <p><strong>School: </strong>Hawas Preparatory School</p>
-                    <p><strong>Level: </strong>{{ level.level }}</p>
+                    <p><strong>O'quv bo'limi: </strong>IT Creative</p>
+                    <p><strong>Daraja: </strong>{{ level.level }}</p>
                 </div>
                 {% endif %}
     
                 <hr>
-                <p class="fw-bold"><i class="fas fa-phone-square-alt"></i> Contact Info</p>
+                <p class="fw-bold"><i class="fas fa-phone-square-alt"></i> A'loqa malumotlari</p>
                 <div class="dashboard-description">
-                    <p><strong>Email:</strong> {{ user.email }}</p>
-                    <p><strong>Tel No.:</strong> {{ user.phone }}</p>
-                    <p><strong>Address/city:</strong> {{ user.address }}</p>
+                    <p><strong>Pochta:</strong> {{ user.email }}</p>
+                    <p><strong>Telefon raqam:</strong> {{ user.phone }}</p>
+                    <p><strong>Manzil:</strong> {{ user.address }}</p>
                 </div>
     
                 <hr>
-                <p class="fw-bold"><i class="fa fa-calendar-day"></i> Important Dates</p>
+                <p class="fw-bold"><i class="fa fa-calendar-day"></i> Kerakli sanalar</p>
                 <div class="dashboard-description">
-                    <p><strong>Last login:</strong> {{ user.last_login }}</p>
+                    <p><strong>So'ngi faollik:</strong> {{ user.last_login }}</p>
                     {% if current_semester and current_session %}
-                    <p><strong>Academic Year:</strong> {{ current_semester }} Semester {{ current_session }}</p>
+                    <p><strong>Academic yil:</strong> {{ current_semester }} Semester {{ current_session }}</p>
                     {% endif %}
-                    <p><strong>Registered Date:</strong> {{ user.date_joined|date }}</p>
+                    <p><strong>Ro'yxatga olingan:</strong> {{ user.date_joined|date }}</p>
                 </div>
             </div>
         </div>

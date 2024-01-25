@@ -181,7 +181,7 @@ class StudentAddForm(UserCreationForm):
         widget=forms.Select(
             attrs={"class": "browser-default custom-select form-control"}
         ),
-        label="Program",
+        label="Fan",
     )
 
     email = forms.EmailField(
@@ -191,7 +191,7 @@ class StudentAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="Email Address",
+        label="Pochta",
     )
 
     password1 = forms.CharField(
@@ -202,7 +202,7 @@ class StudentAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="Password",
+        label="Parol",
     )
 
     password2 = forms.CharField(
@@ -213,7 +213,7 @@ class StudentAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="Password Confirmation",
+        label="Parolni tasdiqlash",
     )
 
     # def validate_email(self):

@@ -16,8 +16,8 @@ MASTER_DEGREE = "Master"
 
 LEVEL = (
     # (LEVEL_COURSE, "Level course"),
-    (BACHLOAR_DEGREE, "Bachloar Degree"),
-    (MASTER_DEGREE, "Master Degree"),
+    (BACHLOAR_DEGREE, "Bakalavr diplomi"),
+    (MASTER_DEGREE, "Magistr diplomi"),
 )
 
 FATHER = "Father"
@@ -29,13 +29,13 @@ GRAND_FATHER = "Grand father"
 OTHER = "Other"
 
 RELATION_SHIP = (
-    (FATHER, "Father"),
-    (MOTHER, "Mother"),
-    (BROTHER, "Brother"),
-    (SISTER, "Sister"),
-    (GRAND_MOTHER, "Grand mother"),
-    (GRAND_FATHER, "Grand father"),
-    (OTHER, "Other"),
+    (FATHER, "Ota"),
+    (MOTHER, "Ona"),
+    (BROTHER, "Aka"),
+    (SISTER, "Singil"),
+    (GRAND_MOTHER, "Katta aka"),
+    (GRAND_FATHER, "Katta opa"),
+    (OTHER, "Boshqa"),
 )
 
 
@@ -99,11 +99,11 @@ class User(AbstractUser):
     @property
     def get_user_role(self):
         if self.is_superuser:
-            role = "Admin"
+            role = "Boshliq"
         elif self.is_student:
-            role = "Student"
+            role = "O'quvchi"
         elif self.is_lecturer:
-            role = "Lecturer"
+            role = "O'qituvchi"
         elif self.is_parent:
             role = "Parent"
 

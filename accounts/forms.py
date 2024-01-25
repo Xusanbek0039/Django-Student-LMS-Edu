@@ -18,7 +18,7 @@ class StaffAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="Foydalanuvchi nomi",
+        label="Foydalanuvchi nom",
     )
 
     first_name = forms.CharField(
@@ -29,7 +29,7 @@ class StaffAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="Ismingiz",
+        label="Ism",
     )
 
     last_name = forms.CharField(
@@ -40,7 +40,7 @@ class StaffAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="Familiyangiz",
+        label="Familiya",
     )
 
     address = forms.CharField(
@@ -121,7 +121,7 @@ class StudentAddForm(UserCreationForm):
         widget=forms.TextInput(
             attrs={"type": "text", "class": "form-control", "id": "username_id"}
         ),
-        label="Username",
+        label="Foydalanuvchi nomi",
     )
     address = forms.CharField(
         max_length=30,
@@ -131,7 +131,7 @@ class StudentAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="Address",
+        label="Manzil",
     )
 
     phone = forms.CharField(
@@ -142,7 +142,7 @@ class StudentAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="Mobile No.",
+        label="Telefon nomer",
     )
 
     first_name = forms.CharField(
@@ -153,7 +153,7 @@ class StudentAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="First name",
+        label="Ism",
     )
 
     last_name = forms.CharField(
@@ -164,7 +164,7 @@ class StudentAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="Last name",
+        label="Familiya",
     )
 
     level = forms.CharField(

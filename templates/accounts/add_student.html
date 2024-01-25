@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}{{ title }} | Learning management system{% endblock title %}
+{% block title %}{{ title }} | Student LMS{% endblock title %}
 {% load crispy_forms_tags %}
 {% load static %}
 
@@ -7,13 +7,13 @@
 
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="/">Home</a></li>
-      <li class="breadcrumb-item"><a href="{% url 'student_list' %}">Students</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Add</li>
+      <li class="breadcrumb-item"><a href="/">Bosh saxifa</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'student_list' %}">O'quvchilar</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Qo'shish</li>
     </ol>
 </nav>
 
-<h4 class="mb-3 fw-bold"><i class="fas fa-user-graduate me-2"></i>Student Add Form</h4>
+<h4 class="mb-3 fw-bold"><i class="fas fa-user-graduate me-2"></i>O'quvchi anketasini to'ldirish</h4>
 
 {% include 'snippets/messages.html' %}
 
@@ -21,7 +21,7 @@
     <div class="row mb-3">
         <div class="col-md-6">
             <div class="card">
-                <p class="form-title">Login Info</p>
+                <p class="form-title">Kirish malumotlar</p>
 
                 <div class="card-body">
                     {{ form.username|as_crispy_field }}

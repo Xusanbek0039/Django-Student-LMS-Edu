@@ -294,29 +294,29 @@ class Sitting(models.Model):
 
     question_order = models.CharField(
         max_length=1024,
-        verbose_name=_("Question Order"),
+        verbose_name=_("Savol berish tartibi"),
         validators=[validate_comma_separated_integer_list],
     )
 
     question_list = models.CharField(
         max_length=1024,
-        verbose_name=_("Question List"),
+        verbose_name=_("Savollar ro'yxati"),
         validators=[validate_comma_separated_integer_list],
     )
 
     incorrect_questions = models.CharField(
         max_length=1024,
         blank=True,
-        verbose_name=_("Incorrect questions"),
+        verbose_name=_("Noto'g'ri savollar"),
         validators=[validate_comma_separated_integer_list],
     )
 
-    current_score = models.IntegerField(verbose_name=_("Current Score"))
+    current_score = models.IntegerField(verbose_name=_("Joriy ball"))
     complete = models.BooleanField(
-        default=False, blank=False, verbose_name=_("Complete")
+        default=False, blank=False, verbose_name=_("Bajarildi")
     )
     user_answers = models.TextField(
-        blank=True, default="{}", verbose_name=_("User Answers")
+        blank=True, default="{}", verbose_name=_("Foydalanuvchi javoblari")
     )
     start = models.DateTimeField(auto_now_add=True, verbose_name=_("Start"))
     end = models.DateTimeField(null=True, blank=True, verbose_name=_("End"))

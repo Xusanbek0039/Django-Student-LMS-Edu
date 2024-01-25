@@ -35,7 +35,7 @@ class CourseAllocationFilter(django_filters.FilterSet):
             {"class": "au-input", "placeholder": "Lecturer"}
         )
         self.filters["course"].field.widget.attrs.update(
-            {"class": "au-input", "placeholder": "Course"}
+            {"class": "au-input", "placeholder": "Kurs"}
         )
 
     def filter_by_lecturer(self, queryset, name, value):

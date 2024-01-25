@@ -119,15 +119,15 @@ class Quiz(models.Model):
             self.exam_paper = True
 
         if self.pass_mark > 100:
-            raise ValidationError("%s is above 100" % self.pass_mark)
+            raise ValidationError("%s 100 dan yuqori" % self.pass_mark)
         if self.pass_mark < 0:
-            raise ValidationError("%s is below 0" % self.pass_mark)
+            raise ValidationError("%s 0 dan past" % self.pass_mark)
 
         super(Quiz, self).save(force_insert, force_update, *args, **kwargs)
 
     class Meta:
-        verbose_name = _("Quiz")
-        verbose_name_plural = _("Quizzes")
+        verbose_name = _("Viktorina")
+        verbose_name_plural = _("Viktorinalar")
 
     def __str__(self):
         return self.title
@@ -172,8 +172,8 @@ class Progress(models.Model):
     objects = ProgressManager()
 
     class Meta:
-        verbose_name = _("User Progress")
-        verbose_name_plural = _("User progress records")
+        verbose_name = _("Foydalanuvchi taraqqiyoti")
+        verbose_name_plural = _("Foydalanuvchi taraqqiyoti qaydlari")
 
     # @property
     def list_all_cat_scores(self):
@@ -200,7 +200,7 @@ class Progress(models.Model):
                 ]
             ]
         ):
-            return _("error"), _("category does not exist or invalid score")
+            return _("error"), _("kategoriya mavjud emas yoki noto'g'ri ball")
 
         to_find = re.escape(str(question.quiz)) + r",(?P<score>\d+),(?P<possible>\d+),"
 
@@ -318,13 +318,13 @@ class Sitting(models.Model):
     user_answers = models.TextField(
         blank=True, default="{}", verbose_name=_("Foydalanuvchi javoblari")
     )
-    start = models.DateTimeField(auto_now_add=True, verbose_name=_("Start"))
-    end = models.DateTimeField(null=True, blank=True, verbose_name=_("End"))
+    start = models.DateTimeField(auto_now_add=True, verbose_name=_("Boshlash"))
+    end = models.DateTimeField(null=True, blank=True, verbose_name=_("Oxiri"))
 
     objects = SittingManager()
 
     class Meta:
-        permissions = (("view_sittings", _("Can see completed exams.")),)
+        permissions = (("view_sittings", _("Tugallangan imtihonlarni ko'rish mumkin.")),)
 
     def get_first_question(self):
         if not self.question_list:
@@ -401,9 +401,9 @@ class Sitting(models.Model):
     @property
     def result_message(self):
         if self.check_if_passed:
-            return f"You have passed this quiz, congratulation"
+            return f"Siz bu viktorinadan o'tdingiz, tabriklayman"
         else:
-            return f"You failed this quiz, give it one chance again."
+            return f"Siz bu testda muvaffaqiyatsiz bo'ldingiz, unga yana bir imkoniyat bering."
 
     def add_user_answer(self, question, guess):
         current = json.loads(self.user_answers)
@@ -513,35 +513,35 @@ class MCQuestion(Question):
         return Choice.objects.get(id=guess).choice
 
     class Meta:
-        verbose_name = _("Multiple Choice Question")
-        verbose_name_plural = _("Multiple Choice Questions")
+        verbose_name = _("Ko'p tanlovli savol")
+        verbose_name_plural = _("Ko'p tanlovli savollar")
 
 
 class Choice(models.Model):
     question = models.ForeignKey(
-        MCQuestion, verbose_name=_("Question"), on_delete=models.CASCADE
+        MCQuestion, verbose_name=_("Viktorena"), on_delete=models.CASCADE
     )
 
     choice = models.CharField(
         max_length=1000,
         blank=False,
-        help_text=_("Enter the choice text that you want displayed"),
-        verbose_name=_("Content"),
+        help_text=_("Ko'rsatmoqchi bo'lgan tanlov matnini kiriting"),
+        verbose_name=_("Tarkib"),
     )
 
     correct = models.BooleanField(
         blank=False,
         default=False,
-        help_text=_("Is this a correct answer?"),
-        verbose_name=_("Correct"),
+        help_text=_("Bu to'g'ri javobmi?"),
+        verbose_name=_("Tarkib"),
     )
 
     def __str__(self):
         return self.choice
 
     class Meta:
-        verbose_name = _("Choice")
-        verbose_name_plural = _("Choices")
+        verbose_name = _("Tanlov")
+        verbose_name_plural = _("Tanlovlar")
 
 
 class EssayQuestion(Question):
@@ -561,5 +561,5 @@ class EssayQuestion(Question):
         return self.content
 
     class Meta:
-        verbose_name = _("Essay style question")
-        verbose_name_plural = _("Essay style questions")
+        verbose_name = _("Insho uslubidagi savol")
+        verbose_name_plural = _("Insho uslubidagi savollar")

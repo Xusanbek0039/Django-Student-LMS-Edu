@@ -25,8 +25,8 @@ MASTER_DEGREE = "Master"
 
 LEVEL = (
     # (LEVEL_COURSE, "Level course"),
-    (BACHLOAR_DEGREE, "Bachloar Degree"),
-    (MASTER_DEGREE, "Master Degree"),
+    (BACHLOAR_DEGREE, "Bakalavr diplomi"),
+    (MASTER_DEGREE, "Magistr diplomi"),
 )
 
 FIRST = "First"
@@ -34,9 +34,9 @@ SECOND = "Second"
 THIRD = "Third"
 
 SEMESTER = (
-    (FIRST, "First"),
-    (SECOND, "Second"),
-    (THIRD, "Third"),
+    (FIRST, "Birinchi"),
+    (SECOND, "Ikkinchi"),
+    (THIRD, "Uchinchi"),
 )
 
 
@@ -67,12 +67,12 @@ class Program(models.Model):
 @receiver(post_save, sender=Program)
 def log_save(sender, instance, created, **kwargs):
     verb = "created" if created else "updated"
-    ActivityLog.objects.create(message=f"The program '{instance}' has been {verb}.")
+    ActivityLog.objects.create(message=f"'{instance}' - fani qo'shildi {verb}.")
 
 
 @receiver(post_delete, sender=Program)
 def log_delete(sender, instance, **kwargs):
-    ActivityLog.objects.create(message=f"The program '{instance}' has been deleted.")
+    ActivityLog.objects.create(message=f"'{instance}' - fani o'chirildi.")
 
 
 class CourseManager(models.Manager):
@@ -134,12 +134,12 @@ pre_save.connect(course_pre_save_receiver, sender=Course)
 @receiver(post_save, sender=Course)
 def log_save(sender, instance, created, **kwargs):
     verb = "created" if created else "updated"
-    ActivityLog.objects.create(message=f"The course '{instance}' has been {verb}.")
+    ActivityLog.objects.create(message=f"'{instance}' kursi qo'shildi {verb}.")
 
 
 @receiver(post_delete, sender=Course)
 def log_delete(sender, instance, **kwargs):
-    ActivityLog.objects.create(message=f"The course '{instance}' has been deleted.")
+    ActivityLog.objects.create(message=f"'{instance}' kursi o'chirildi.")
 
 
 class CourseAllocation(models.Model):

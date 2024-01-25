@@ -303,7 +303,7 @@ class EmailValidationOnForgotPassword(PasswordResetForm):
     def clean_email(self):
         email = self.cleaned_data["email"]
         if not User.objects.filter(email__iexact=email, is_active=True).exists():
-            msg = ""
+            msg = "Belgilangan elektron pochta manzili bilan ro'yxatdan o'tgan foydalanuvchi yo'q."
             self.add_error("email", msg)
             return email
 
@@ -317,7 +317,7 @@ class ParentAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="Username",
+        label="Foydalanuvchi nomi",
     )
     address = forms.CharField(
         max_length=30,
@@ -327,7 +327,7 @@ class ParentAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="Address",
+        label="Manzil",
     )
 
     phone = forms.CharField(
@@ -338,7 +338,7 @@ class ParentAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="Mobile No.",
+        label="Telefon nomer",
     )
 
     first_name = forms.CharField(
@@ -349,7 +349,7 @@ class ParentAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="First name",
+        label="Ism",
     )
 
     last_name = forms.CharField(
@@ -360,7 +360,7 @@ class ParentAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="Last name",
+        label="Familiya",
     )
 
     email = forms.EmailField(
@@ -370,7 +370,7 @@ class ParentAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="Email Address",
+        label="Pochta",
     )
 
     student = forms.ModelChoiceField(
@@ -378,7 +378,7 @@ class ParentAddForm(UserCreationForm):
         widget=forms.Select(
             attrs={"class": "browser-default custom-select form-control"}
         ),
-        label="Student",
+        label="O'quvchi",
     )
 
     relation_ship = forms.CharField(
@@ -398,7 +398,7 @@ class ParentAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="Password",
+        label="Parol",
     )
 
     password2 = forms.CharField(
@@ -409,7 +409,7 @@ class ParentAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="Password Confirmation",
+        label="Parolni tasdiqlash",
     )
 
     # def validate_email(self):

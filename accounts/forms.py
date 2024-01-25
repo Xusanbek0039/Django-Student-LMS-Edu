@@ -18,7 +18,7 @@ class StaffAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="Username",
+        label="Foydalanuvchi nomi",
     )
 
     first_name = forms.CharField(
@@ -29,7 +29,7 @@ class StaffAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="First Name",
+        label="Ismingiz",
     )
 
     last_name = forms.CharField(
@@ -40,7 +40,7 @@ class StaffAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="Last Name",
+        label="Familiyangiz",
     )
 
     address = forms.CharField(
@@ -51,7 +51,7 @@ class StaffAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="Address",
+        label="Manzil",
     )
 
     phone = forms.CharField(
@@ -62,7 +62,7 @@ class StaffAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="Mobile No.",
+        label="Telefon nomer",
     )
 
     email = forms.CharField(
@@ -73,7 +73,7 @@ class StaffAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="Email",
+        label="Pochta",
     )
 
     password1 = forms.CharField(
@@ -84,7 +84,7 @@ class StaffAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="Password",
+        label="Parol",
     )
 
     password2 = forms.CharField(
@@ -95,7 +95,7 @@ class StaffAddForm(UserCreationForm):
                 "class": "form-control",
             }
         ),
-        label="Password Confirmation",
+        label="Parolni tasdiqlash",
     )
 
     class Meta(UserCreationForm.Meta):

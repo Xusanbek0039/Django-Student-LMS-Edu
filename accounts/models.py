@@ -105,7 +105,7 @@ class User(AbstractUser):
         elif self.is_lecturer:
             role = "O'qituvchi"
         elif self.is_parent:
-            role = "Parent"
+            role = "Ota-ona"
 
         return role
 

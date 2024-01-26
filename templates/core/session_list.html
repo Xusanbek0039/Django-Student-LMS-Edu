@@ -61,8 +61,8 @@
 
                 {% if request.user.is_superuser %}
                 <td> <div class="update-delete">
-                    <a href="{% url 'edit_session' pk=session.pk %}" class="update" title="Edit"><i class="fas fa-pencil-alt"></i></a>
-                    <a href="{% url 'delete_session' pk=session.pk %}" class="delete" title="Delete"><i class="fas fa-trash-alt"></i></a>
+                    <a href="{% url 'edit_session' pk=session.pk %}" class="update" title="Taxrirlash"><i class="fas fa-pencil-alt"></i></a>
+                    <a href="{% url 'delete_session' pk=session.pk %}" class="delete" title="O'chirish"><i class="fas fa-trash-alt"></i></a>
                     </div>
                 </td>
                 {% endif %}

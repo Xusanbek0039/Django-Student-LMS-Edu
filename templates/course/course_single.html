@@ -7,7 +7,7 @@
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Boshs axifa</a></li>
-        <li class="breadcrumb-item"><a href="{% url 'programs' %}">Programs</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'programs' %}">Fanlar</a></li>
         <li class="breadcrumb-item"><a href="{% url 'program_detail' course.program.id %}">{{ course.program }}</a></li>
         <li class="breadcrumb-item active" aria-current="page">{{ course }}</li>
     </ol>
@@ -18,7 +18,7 @@
         <div class="">
             {% if request.user.is_superuser %}
             <a class="btn btn-sm btn-light" href="{% url 'edit_course' course.slug %}">
-                <i class="fas fa-pencil-alt"></i> Edit course
+                <i class="fas fa-pencil-alt"></i> Kursni taxrirlash
             </a>
             {% endif %}
             {% if request.user.is_superuser or request.user.is_lecturer %}

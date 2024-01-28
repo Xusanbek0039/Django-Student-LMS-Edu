@@ -54,10 +54,10 @@
                         <tr>
                             <th>№</th>
                             <th>Video nomi</th>
-                            <th>Uploaded Date</th>
-                            <th>Get Started</th>
+                            <th>Yuklangan sana</th>
+                            <th>Online ko'rish</th>
                             {% if request.user.is_superuser or request.user.is_lecturer %}
-                            <th>Actions</th>
+                            <th>Boshqa</th>
                             {% endif %}
                         </tr>
                     </thead>
@@ -74,8 +74,8 @@
                             <th>
                                 <div>
                                     <a class="download-btn" href="{{ video.get_absolute_url }}"
-                                        title="Download to your device">
-                                        <i class="fas fa-play me-1"></i>Play now</a>
+                                        title="Qurilmangizga yuklab oling">
+                                        <i class="fas fa-play me-1"></i>Videoni ko'rish</a>
                                 </div>
                             </th>
 
@@ -83,11 +83,11 @@
                             <td>
                                 <div class="update-delete">
                                     <a href="{% url 'upload_video_edit' slug=course.slug video_slug=video.slug %}"
-                                        class="update" title="Edit">
+                                        class="update" title="Taxrirlash">
                                         <i class="fas fa-pencil-alt"></i>
                                     </a>
                                     <a href="{% url 'upload_video_delete' slug=course.slug video_slug=video.slug %}"
-                                        class="delete" title="Delete">
+                                        class="delete" title="O'chirish">
                                         <i class="fas fa-trash-alt"></i>
                                     </a>
                                 </div>
@@ -100,7 +100,7 @@
                             <td></td>
                             <td>
                                 <span class="text-danger">
-                                    No video Uploaded.
+                                    Video qo'llam,a yuklanmagan.
                                     {% if request.user.is_superuser or request.user.is_lecturer %}
                                     <a href="{% url 'upload_video' course.slug %}">
                                         <i class="primary" style="font-size: 22px;">

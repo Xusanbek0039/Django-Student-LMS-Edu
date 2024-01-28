@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
-{% block title %} My Courses | Learning management system{% endblock title %}
+{% block title %} Mening kursim | Student LMS{% endblock title %}
 {% load static %}
 
 {% block content %}
 
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">My Courses</li>
+        <li class="breadcrumb-item"><a href="/">Bosh saxifa</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Mening kursim</li>
     </ol>
 </nav>
 
@@ -19,7 +19,7 @@
 {% endif %}
 
 {% if request.user.is_lecturer %}
-    <div class="title-1">My Courses</div>
+    <div class="title-1">Mening kursim</div>
 {% endif %}
 
 {% if messages %}
@@ -38,19 +38,19 @@
 
 {% if request.user.is_student %}
 <div class="table-responsive p-3 mt-3">
-    <h6 class="fw-bold text-primary"><u>Taken Courses:</u></h6>
+    <h6 class="fw-bold text-primary"><u>Qabul qilingan kurslar::</u></h6>
     <div class="table-shadow">
         <table class="table table-light">
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th> Course Name </th>
-                    <th> Course Code </th>
-                    <th> Cr.Hr </th>
-                    <th> Year </th>
+                    <th>№</th>
+                    <th> Kurs nomi </th>
+                    <th> Kurs kodi </th>
+                    <th> Kreditlar </th>
+                    <th> O'tilish vaqti </th>
                     <th> Semester </th>
-                    <th> Current Semester </th>
-                    <th> Taken </th>
+                    <th> Joriy semester </th>
+                    <th> Olingan </th>
                 </tr>
             </thead>
             <tbody>
@@ -71,7 +71,7 @@
                         {% endif %}
                     </th>
                     <td class="success">
-                        <i class="fas fa-check-circle"></i> Taken
+                        <i class="fas fa-check-circle"></i> Olingan
                     </td>
                 </tr>
                 {% endfor %}
@@ -82,18 +82,18 @@
 {% endif %}
 
 <div class="table-responsive p-3">
-    <h6 class="fw-bold text-primary"><u>All Courses:</u></h6>
+    <h6 class="fw-bold text-primary"><u>Barcha kurslar:</u></h6>
     <div class="table-shadow">
         <table class="table table-light">
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th> Course Name </th>
-                    <th> Course Code </th>
-                    <th> Cr.Hr </th>
-                    <th> Year </th>
+                    <th>№</th>
+                    <th> Kurs nomi </th>
+                    <th> Kurs kodi </th>
+                    <th> Kredit </th>
+                    <th> O'tish vaqti </th>
                     <th> Semester </th>
-                    <th> Current Semester </th>
+                    <th> Joriy Semester </th>
                 </tr>
             </thead>
             <tbody>

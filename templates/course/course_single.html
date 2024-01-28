@@ -23,16 +23,16 @@
             {% endif %}
             {% if request.user.is_superuser or request.user.is_lecturer %}
             <a class="btn btn-sm btn-primary" href="{% url 'upload_file_view' course.slug %}"><i class="fas fa-plus"></i>
-                Upload new file
+                Yangi fayl yuklash
             </a>
             <a class="btn btn-sm btn-primary" href="{% url 'upload_video' course.slug %}"><i class="fas fa-plus"></i>
-                Upload new video
+                Yangi video yuklash
             </a>
             {% endif %}
         </div>
         <div class="ms-auto">
             <a class="btn btn-sm btn-warning" href="{% url 'quiz_index' course.slug %}"><i class="fas fa-list"></i>
-                Take a Quiz
+                Savol javob o'tkazish
             </a>
         </div>
     </div>

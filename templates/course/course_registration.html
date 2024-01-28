@@ -165,7 +165,7 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td><b>Total credit(s):</b> {{ total_sec_semester_credit|add:total_first_semester_credit }} </td>
+                                <td><b>Umumiy kredit(lar)i:</b> {{ total_sec_semester_credit|add:total_first_semester_credit }} </td>
                                 <td></td>
                             </tr>
                         </tbody>
@@ -182,11 +182,11 @@
 {% if not no_course_is_registered %}
 
 <a class="btn btn-warning" href="{% url 'course_registration_form' %}" target="_blank" title="Print Registration Form">
-    <i class="fas fa-print"></i> Print Registerd Courses
+    <i class="fas fa-print"></i> Ro'yxatdan o'tgan kurslarni chop etish
 </a>
 
 <div class="col-md-12 p-0 bg-white">
-    <p class="form-title"><b>Course Drop</b>
+    <p class="form-title"><b>Kursni to'xtatish</b>
     <div class="level-wrapper">
         <div class="info-text">{{ student.level }}</div>
     </div>
@@ -196,7 +196,7 @@
             {% csrf_token %}
             <div class="d-flex justify-content-between mb-4">
                 <button title="Save Score" type="submit" class="btn btn-primary">
-                    <i class="fa fa-times"></i> Drop Selected
+                    <i class="fa fa-times"></i> Tanlangan qoldirish
                 </button>
             </div>
 

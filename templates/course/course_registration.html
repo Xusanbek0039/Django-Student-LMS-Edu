@@ -181,7 +181,7 @@
 
 {% if not no_course_is_registered %}
 
-<a class="btn btn-warning" href="{% url 'course_registration_form' %}" target="_blank" title="Print Registration Form">
+<a class="btn btn-warning" href="{% url 'course_registration_form' %}" target="_blank" title="Ro'yxatdan o'tgan kurslarni chop etish">
     <i class="fas fa-print"></i> Ro'yxatdan o'tgan kurslarni chop etish
 </a>
 
@@ -195,7 +195,7 @@
         <form action="{% url 'course_drop' %}" method="POST">
             {% csrf_token %}
             <div class="d-flex justify-content-between mb-4">
-                <button title="Save Score" type="submit" class="btn btn-primary">
+                <button title="Natijani saqlash" type="submit" class="btn btn-primary">
                     <i class="fa fa-times"></i> Tanlangan qoldirish
                 </button>
             </div>

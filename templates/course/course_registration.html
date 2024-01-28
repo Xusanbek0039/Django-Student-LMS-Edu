@@ -213,11 +213,11 @@
                             <tr>
                                 <th>Mark</th>
                                 <th>Kurs kodi</th>
-                                <th>Course Title</th>
+                                <th>Kurs nomi</th>
                                 <th>Cr.Hr(s)</th>
-                                <th>Year</th>
-                                <th>Classification</th>
-                                <th>Elective Group</th>
+                                <th>Yil</th>
+                                <th>Tasniflash</th>
+                                <th>Tanlangan guruh</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -231,9 +231,9 @@
                                 <td>{{ course.credit }}</td>
                                 <td>{{ course.year }}</td>
                                 {% if course.is_elective %}
-                                <td>Elective</td>
+                                <td>Tanlangan</td>
                                 {% else %}
-                                <td>Core</td>
+                                <td>Yadro</td>
                                 {% endif %}
                                 <th>-</th>
                             </tr>
@@ -244,7 +244,7 @@
                                 <td></td>
                                 <td>
                                     <span class="text-danger">
-                                        No Course.
+                                        Kurs mavjud emas.
                                     </span>
                                 </td>
                                 <td></td>
@@ -258,7 +258,7 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td><b>Total credit(s):</b> {{ total_registered_credit }} </td>
+                                <td><b>Umumiy kredit(lar)i:</b> {{ total_registered_credit }} </td>
                                 <td></td>
                             </tr>
                         </tbody>

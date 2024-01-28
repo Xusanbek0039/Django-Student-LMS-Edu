@@ -92,7 +92,7 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td><b>First semester Credit(s):</b> {{ total_first_semester_credit }} </td>
+                                <td><b>Birinchi semestr kredit(lar)i:</b> {{ total_first_semester_credit }} </td>
                                 <td></td>
                             </tr>
                         </tbody>
@@ -101,18 +101,18 @@
             </div>
 
             <div class="table-responsive p-0 px-2 mt-2">
-                <div class="table-title"><u>Second Semester:</u></div>
+                <div class="table-title"><u>Ikkinchi semestr:</u></div>
                 <div class="table-shadow">
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>Mark</th>
-                                <th>Course Code</th>
-                                <th>Course Title</th>
+                                <th>Kurs kodi</th>
+                                <th>Kurs nomi</th>
                                 <th>Cr.Hr(s)</th>
-                                <th>Year</th>
-                                <th>Classification</th>
-                                <th>Elective Group</th>
+                                <th>Yil</th>
+                                <th>Tasniflash</th>
+                                <th>Tanlangan guruh</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -127,9 +127,9 @@
                                 <td>{{ course.credit }}</td>
                                 <td>{{ course.year }}</td>
                                 {% if course.is_elective %}
-                                <td>Elective</td>
+                                <td>Tanlangan</td>
                                 {% else %}
-                                <td>Core</td>
+                                <td>Yadro</td>
                                 {% endif %}
                                 <th>-</th>
                             </tr>
@@ -141,7 +141,7 @@
                                 <td></td>
                                 <td>
                                     <span class="text-danger">
-                                        No Course.
+                                        NKurs mavjud emas.
                                     </span>
                                 </td>
                                 <td></td>
@@ -155,7 +155,7 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td><b>Second semester credit(s):</b> {{ total_sec_semester_credit }} </td>
+                                <td><b>Ikkinchi semestr kredit(lar)i:</b> {{ total_sec_semester_credit }} </td>
                                 <td></td>
                             </tr>
                             <tr>

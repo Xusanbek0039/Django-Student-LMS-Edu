@@ -9,7 +9,7 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Bosh saxifa</a></li>
         <li class="breadcrumb-item"><a href="{% url 'programs' %}">Fanlar</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Program Form</li>
+        <li class="breadcrumb-item active" aria-current="page">Fan qoshish</li>
     </ol>
 </nav>
 
@@ -18,7 +18,7 @@
 <div class="row">
 <div class="col-md-6 mx-auto">
     <div class="card">
-        <p class="form-title">Program Add Form</p>
+        <p class="form-title">Fan qoshish anketasi</p>
         <div class="p-3"><br>
             <form action="" method="POST">{% csrf_token %}
                 {{ form|crispy }}

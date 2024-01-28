@@ -201,7 +201,7 @@
 </div>
 
 <div class="site-section mb-5 mt-4">
-    <div class="title-1">Ustoz(lar)</div>
+    <div class="title">Ustoz(lar)</div>
     <br>
     <br>
     <div class="container-fluid">
@@ -215,7 +215,7 @@
                         {% endif %}
                         <h5 class="fw-bold mb-0">{{ lecturer|title }}</h5>
                         <p class="mb-0">{{ lecturer.lecturer.email }}</p>
-                        <p class="text-muted small">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+                        <p class="text-muted small">Ustozlar bu yerga kursning elektron vaqriantlarini yuklab borishadi.</p>
                         <p>
                             <a class="btn btn-sm btn-secondary" href="#" role="button"><i
                                     class="fab fa-twitter"></i></a>
@@ -228,7 +228,7 @@
                 </div>
             </div>
             {% empty %}
-            <h6 class="text-muted mt-3">No lecturer assigned for this course</h6>
+            <h6 class="text-muted mt-3">Bu kursga ustoz biriktirilmagan.</h6>
             {% endfor %}
 
         </div>

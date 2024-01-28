@@ -134,7 +134,7 @@
                             <th>Yangilangan sana</th>
                             <th>Yuklab olish uchun</th>
                             {% if request.user.is_superuser or request.user.is_lecturer %}
-                            <th>Actions</th>
+                            <th>Boshqa </th>
                             {% endif %}
                         </tr>
                     </thead>
@@ -151,8 +151,8 @@
                             <td>{{ file.updated_date|date }}</td>
                             <th>
                                 <div>
-                                    <a class="download-btn" href="{{ file.file.url }}" title="Download to your device">
-                                        <i class="fas fa-download me-1"></i>Download</a>
+                                    <a class="download-btn" href="{{ file.file.url }}" title="Qurilmangizga yuklab oling">
+                                        <i class="fas fa-download me-1"></i>Yuklab olish</a>
                                 </div>
                             </th>
 
@@ -160,11 +160,11 @@
                             <td>
                                 <div class="update-delete">
                                     <a href="{% url 'upload_file_edit' slug=course.slug file_id=file.pk %}"
-                                        class="update" title="Edit">
+                                        class="update" title="Taxrirlash">
                                         <i class="fas fa-pencil-alt"></i>
                                     </a>
                                     <a href="{% url 'upload_file_delete' slug=course.slug file_id=file.pk %}"
-                                        class="delete" title="Delete">
+                                        class="delete" title="O'chirish">
                                         <i class="fas fa-trash-alt"></i>
                                     </a>
                                 </div>

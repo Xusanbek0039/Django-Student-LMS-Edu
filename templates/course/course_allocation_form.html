@@ -8,8 +8,8 @@
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Bosh saxifa</a></li>
-        <li class="breadcrumb-item"><a href="{% url 'course_allocation_view' %}">Course Allocations</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Allocation Form</li>
+        <li class="breadcrumb-item"><a href="{% url 'course_allocation_view' %}">Kursni taqsimlash</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Ustozga kursni taqsimlash</li>
     </ol>
 </nav>
 
@@ -30,7 +30,7 @@
 <div class="row">
     <div class="col-md-6 mx-auto">
         <div class="card">
-            <p class="form-title">Course Allocation Form</p>
+            <p class="form-title">Kurslarni ustozlarga taqsimlash shakli</p>
             <div class="p-3">
                 <form action="" method="POST">{% csrf_token %}
                     <!-- {{ form|crispy }} -->

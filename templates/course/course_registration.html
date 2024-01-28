@@ -31,26 +31,25 @@
 
 <form action="{% url 'course_registration' %}" method="POST">{% csrf_token %}
     <div class="col-md-12 p-0 bg-white">
-        <p class="form-title fw-bold">Course Add</p>
+        <p class="form-title fw-bold">Kurs qo'shish</p>
         <div class="container">
             <div class="d-flex justify-content-between mb-3">
-                <button title="Save Score" type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Add
-                    Selected</button>
+                <button title="Natijani saqlashe" type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Tanlanganni qo'shish</button>
             </div>
 
             <div class="table-responsive p-0 px-2 mt-2">
-                <div class="table-title"><u>First Semester:</u></div>
+                <div class="table-title"><u>Birinchi semester</u></div>
                 <div class="table-shadow">
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>Mark</th>
-                                <th>Course Code</th>
-                                <th>Course Title</th>
+                                <th>Kurs kodi</th>
+                                <th>Kurs nomi</th>
                                 <th>Cr.Hr(s)</th>
-                                <th>Year</th>
-                                <th>Classification</th>
-                                <th>Elective Group</th>
+                                <th>Yil</th>
+                                <th>Tasniflash</th>
+                                <th>Tanlangan guruh</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -65,9 +64,9 @@
                                 <td>{{ course.credit }}</td>
                                 <td>{{ course.year }}</td>
                                 {% if course.is_elective %}
-                                <td>Elective</td>
+                                <td>Tanlangan</td>
                                 {% else %}
-                                <td>Core</td>
+                                <td>Yadro</td>
                                 {% endif %}
                                 <th>-</th>
                             </tr>
@@ -79,7 +78,7 @@
                                 <td></td>
                                 <td>
                                     <span class="text-danger">
-                                        No Course.
+                                        Kurs mavjud emas.
                                     </span>
                                 </td>
                                 <td></td>

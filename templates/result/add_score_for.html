@@ -6,9 +6,9 @@
 
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/">Bosh saxifa</a></li>
         <li class="breadcrumb-item"><a href="{{ course.get_absolute_url }}">{{ course }}</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Manage Score</li>
+        <li class="breadcrumb-item active" aria-current="page">Natijalarni boshqarish</li>
     </ol>
 </nav>
 
@@ -20,7 +20,7 @@
         {% for course in courses %}
             <a class="dropdown-item" href="{% url 'add_score_for' course.id %}" title="{{ course.code }}">{{ course.title }}</a>
         {% empty %}
-            <p class="dropdown-item">No course.</p>
+            <p class="dropdown-item">Sizda xech qanday kurs mavjud emas.</p>
         {% endfor %}
     </div>
 </div>

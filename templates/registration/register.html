@@ -71,7 +71,7 @@
     <button type="submit" class="btn btn-primary" id="login-btn"><i class="fas fa-sign-in-alt"></i><small> Ro'yxatdan o'tish</small></button>
   </form>
   <br>
-  <span> Already Registered ? </span><a href="{% url 'login' %}" class="link">Kirish</a>
+  <span> Sizda hisob mavjudmi ? </span><a href="{% url 'login' %}" class="link">Kirish</a>
 </div>
 {% endblock content %}
 
@@ -82,7 +82,7 @@
   const loginBtnEl = document.getElementById('login-btn');
 
   loginFormEl.addEventListener('submit', () => {
-    loginBtnEl.innerHTML = '<i class="fas fa-sign-in-alt"></i> Signining you in . . .';
+    loginBtnEl.innerHTML = '<i class="fas fa-sign-in-alt"></i> Hisob tekshirilmoqda . . .';
     loginBtnEl.classList.add("disabled");
   })
 

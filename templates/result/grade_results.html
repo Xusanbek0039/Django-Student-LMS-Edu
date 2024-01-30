@@ -54,9 +54,9 @@
         <td>{{ course.point }}</td>
 
         {% if course.comment == 'PASS' %}
-          <td class="success"><i class="fas fa-check-circle"></i> PASS</td>
+          <td class="success"><i class="fas fa-check-circle"></i> Muvafaqiyatli</td>
         {% elif course.comment == 'FAIL' %}
-          <td class="danger"><i class="fas fa-exclamation-circle"></i> FAIL</td>
+          <td class="danger"><i class="fas fa-exclamation-circle"></i> Muvafaqiyatsiz</td>
         {% else %}
           <td></td>
         {% endif %}

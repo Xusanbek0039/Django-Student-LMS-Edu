@@ -34,9 +34,9 @@
 <form action="" method="POST">
     {% csrf_token %}
     <div class="btn-flex">
-        <button title="Save Score" type="submit" class="btn btn-primary">Saqlash</button>
+        <button title="Natijani saqlash" type="submit" class="btn btn-primary">Saqlash</button>
         <a target="_blank" href="{% url 'result_sheet_pdf_view' id=course.id %}">
-            <span data-toggle="tooltip" title="Print Result sheet" class="btn btn-warning">
+            <span data-toggle="tooltip" title="Yuklab olish" class="btn btn-warning">
                 <i class="far fa-file-pdf"></i> Natijalarni yuklab olish
             </span>
         </a>

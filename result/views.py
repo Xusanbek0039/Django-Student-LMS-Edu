@@ -289,7 +289,7 @@ def result_sheet_pdf_view(request, id):
     result = TakenCourse.objects.filter(course__pk=id)
     course = get_object_or_404(Course, id=id)
     no_of_pass = TakenCourse.objects.filter(course__pk=id, comment="PASS").count()
-    no_of_fail = TakenCourse.objects.filter(course__pk=id, comment="FAIL").count()
+    no_of_fail = TakenCourse.objects.filter(course__pk=id, comment="Muva").count()
     fname = (
         str(current_semester)
         + "_semester_"

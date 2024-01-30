@@ -97,13 +97,13 @@
   <table class="table table-light">
     <thead>
       <tr>
-        <th>#</th>
-        <th>Course Title</th>
-        <th>Course Code</th>
-        <th>Cr.Hr</th>
-        <th>GRADE</th>
+        <th>№</th>
+        <th>Kurs nomi </th>
+        <th>Kurs kodi</th>
+        <th>Kreditlar</th>
+        <th>Baxo</th>
         <th>Points</th>
-        <th>Comment</th>
+        <th>Izoh</th>
       </tr>
     </thead>
     {% for course in courses %}
@@ -149,7 +149,7 @@
       <th></th>
       <th></th>
       <th></th>
-      <th>Second Semester GPA: {{ result.gpa }}</th>
+      <th>Ikkinchi semestr GPA: {{ result.gpa }}</th>
     </tr>
     <tr style="background: #fd7e14; color: #fff;">
       <th></th>
@@ -158,7 +158,7 @@
       <th></th>
       <th></th>
       <th></th>
-      <th>Previous CGPA: {{ previousCGPA }}</th>
+      <th>Oldingi CGPA: {{ previousCGPA }}</th>
     </tr>
     {% endif %}
     {% endfor %}

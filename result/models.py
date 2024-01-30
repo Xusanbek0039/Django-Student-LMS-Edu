@@ -66,8 +66,8 @@ PASS = "PASS"
 FAIL = "FAIL"
 
 COMMENT = (
-    (PASS, "PASS"),
-    (FAIL, "FAIL"),
+    (PASS, "Muvafaqiyatli"),
+    (FAIL, "Muvafaqiyatsiz"),
 )
 
 

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Izlash  {{ query }} | Student LMS{% endblock title %}
+{% block title %}Izlash  | Student LMS{% endblock title %}
 
 {% load class_name %}
 
@@ -39,13 +39,13 @@
 </style>
 
 <div class="card p-3" style="box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3); border-radius: 10px;">
-    <h5 class="text-muted m-0">{{ count }} result{{ count|pluralize }} for <b><em class="text-orange"> {{ query }}</em></b></h5>
+    <h5 class="text-muted m-0">{{ count }} -ta natija   <b><em class="text-orange"> {{ query }} uchun</em></b></h5>
     <hr>
     {% for object in object_list %}
         {% with object|class_name as klass %}
         {% if klass == "Program" %}
             <div class="session-wrapper">
-                <div class="session"><div class="info-text bg-orange">Program</div></div>
+                <div class="session"><div class="info-text bg-orange">Fan</div></div>
             </div>
             <div class="col-12 class-item">
                 <!-- <p><b>Program of</b> {{ object }}</p> -->
@@ -55,7 +55,7 @@
 
         {% elif klass == "Course" %}
             <div class="session-wrapper">
-                <div class="session"><div class="info-text bg-orange">Course</div></div>
+                <div class="session"><div class="info-text bg-orange">Kurs</div></div>
             </div>
             <div class="col-12 class-item">
                 <p><b>Program of</b> {{ object.program }}</p>

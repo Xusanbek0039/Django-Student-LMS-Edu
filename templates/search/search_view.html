@@ -109,10 +109,10 @@
 
   {% elif klass == "Quiz" %}
   <div class="session-wrapper">
-    <div class="session"><div class="info-text bg-orange">Quiz</div></div>
+    <div class="session"><div class="info-text bg-orange">Test</div></div>
   </div>
   <div class="col-12 class-item">
-    <p>{{ object.category }} quiz, <b>Course:</b> {{ object.course }}</p>
+    <p>{{ object.category }} quiz, <b>Kurs:</b> {{ object.course }}</p>
     <h4>
       <a href="{{ object.get_absolute_url }}"><b>{{ object.title }}</b></a>
     </h4>
@@ -122,7 +122,7 @@
 
   {% else %}
   <div class="session-wrapper">
-    <div class="session"><div class="info-text bg-orange">Program</div></div>
+    <div class="session"><div class="info-text bg-orange">Fan</div></div>
   </div>
   <div class="col-12 col-lg-8 offset-lg-4">
     <a href="{{ object.get_absolute_url }}" class="class-item d-flex"

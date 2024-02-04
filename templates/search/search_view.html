@@ -99,7 +99,7 @@
     </div>
   </div>
   <div class="col-12 class-item">
-    <p><b>Date: </b> {{ object.updated_date|timesince }} ago</p>
+    <p><b>Sana: </b> {{ object.updated_date|timesince }} oldin</p>
     <h4>
       <a href="{{ object.get_absolute_url }}"><b>{{ object.title }}</b></a>
     </h4>
@@ -112,7 +112,7 @@
     <div class="session"><div class="info-text bg-orange">Test</div></div>
   </div>
   <div class="col-12 class-item">
-    <p>{{ object.category }} quiz, <b>Kurs:</b> {{ object.course }}</p>
+    <p>{{ object.category }} test, <b>Kurs:</b> {{ object.course }}</p>
     <h4>
       <a href="{{ object.get_absolute_url }}"><b>{{ object.title }}</b></a>
     </h4>

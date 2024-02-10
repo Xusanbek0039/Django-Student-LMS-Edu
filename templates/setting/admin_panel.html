@@ -1,86 +1,116 @@
-{% extends 'base.html' %}
-{% block title %}{{ title }} | Student LMS{% endblock title %}
-{% load crispy_forms_tags %}
-{% load static %}
+{% extends 'base.html' %} {% block title %}{{ title }} | Student LMS{% endblock
+title %} {% load crispy_forms_tags %} {% load static %} {% block content %}
 
-{% block content %}
-
-<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Bosh saxifa</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Boshqaruv paneli</li>
-    </ol>
-</nav>  
+<nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Bosh saxifa</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Boshqaruv paneli</li>
+  </ol>
+</nav>
 
 <div class="title-1"><i class="fas fa-user-tie"></i>Boshqaruv paneli</div>
-<br>
-<br>
-{% if messages %}
-    {% for message in messages %}
-        {% if message.tags == 'error' %}
-            <div class="alert alert-danger">
-                <i class="fas fa-exclamation-circle"></i>{{ message }}
-            </div>
-        {% else %}
-            <div class="alert alert-success">
-                <i class="fas fa-check-circle"></i>{{ message }}
-            </div>
-        {% endif %}
-    {% endfor %}
-{% endif %}
+<br />
+<br />
+{% if messages %} {% for message in messages %} {% if message.tags == 'error' %}
+<div class="alert alert-danger">
+  <i class="fas fa-exclamation-circle"></i>{{ message }}
+</div>
+{% else %}
+<div class="alert alert-success">
+  <i class="fas fa-check-circle"></i>{{ message }}
+</div>
+{% endif %} {% endfor %} {% endif %}
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="border-bottom">
-                <a class="link" href="{% url 'lecturer_list' %}"> Ustozlar bo'limi&raquo;</a>
-                <p class="text-muted">Bu bo'limda ustozlarni qo'shish, taxrirlash, o'chirish funksiyalari mavjud.</p>
-            </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="border-bottom">
+        <a class="link" href="{% url 'lecturer_list' %}">
+          Ustozlar bo'limi&raquo;</a
+        >
+        <p class="text-muted">
+          Bu bo'limda ustozlarni qo'shish, taxrirlash, o'chirish funksiyalari
+          mavjud.
+        </p>
+      </div>
 
-            <div class="border-bottom mt-3">
-            <a class="link" href="{% url 'student_list' %}"> O'quvchilar bo'limi &raquo;</a>
-            <p class="text-muted">Bu bo'limda o'quvchilarni qo'shish, taxrirlash, o'chirish funksiyalari mavjud.</p>
-            </div>
+      <div class="border-bottom mt-3">
+        <a class="link" href="{% url 'student_list' %}">
+          O'quvchilar bo'limi &raquo;</a
+        >
+        <p class="text-muted">
+          Bu bo'limda o'quvchilarni qo'shish, taxrirlash, o'chirish funksiyalari
+          mavjud.
+        </p>
+      </div>
 
-            <div class="border-bottom mt-3">
-            <a class="link" href="{% url 'session_list' %}"> Sessiyalar bo'limi &raquo;</a>
-            <p class="text-muted">Bu bo'limda sessiyalarni qo'shish, taxrirlash, yangilash, o'chirish funksiyalari mavjud.</p>
-            </div>
+      <div class="border-bottom mt-3">
+        <a class="link" href="{% url 'session_list' %}">
+          Sessiyalar bo'limi &raquo;</a
+        >
+        <p class="text-muted">
+          Bu bo'limda sessiyalarni qo'shish, taxrirlash, yangilash, o'chirish
+          funksiyalari mavjud.
+        </p>
+      </div>
 
-            <div class="mt-3">
-            <a class="link" href="{% url 'semester_list' %}"> Oraliqlar bo'limi &raquo;</a>
-            <p class="text-muted">Bu bo'limda oraliqlarni qo'shish, taxrirlash, yangilash, o'chirish funksiyalari mavjud.</p>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="border-bottom">
-                Kursga qo'shiosh &amp; Bo'limi 
-                <label class="switch switch-text switch-success switch-pill" style="float: right;">
-                <input type="checkbox" class="switch-input" checked="true">
-                <span data-on="On" data-off="Off" class="switch-label"></span>
-                <span class="switch-handle"></span>
-                </label>
-                <p class="text-muted">Ushbu bo'lim o'zuvchilarni kursga qo'shish bo'liminiki 
-                    <i class="info-text py-0 px-2 bg-success text-light">Yoniq</i> yoki <i class="info-text py-0 px-2 bg-danger text-light">O'chiq</i>
-                </p>
-            </div>
-
-            <div class="border-bottom mt-3">
-                <a class="link" href="{% url 'programs' %}"> Fanlar &amp; Kurslar &raquo;</a>
-            <p class="text-muted">Bu bo'limda fanlar hamda kurslarni qo'shish, taxrirlash, o'chirish funksiyalari mavjud.</p>
-            </div>
-
-            <div class="border-bottom mt-3">
-            Manage<a class="link" href="{% url 'course_allocation_view' %}"> Course Allocations &raquo;</a>
-            <p class="text-muted">CRUD (Create, Retrieve, Update &amp; Delete) course allocations</p>
-            </div>
-
-            <div class="mt-3">
-            Manage<a class="link" href="{% url 'home' %}"> News &amp; Events &raquo;</a>
-            <p class="text-muted">CRUD (Create, Retrieve, Update &amp; Delete) News &amp; Events</p>
-            </div>
-        </div>
+      <div class="mt-3">
+        <a class="link" href="{% url 'semester_list' %}">
+          Oraliqlar bo'limi &raquo;</a
+        >
+        <p class="text-muted">
+          Bu bo'limda oraliqlarni qo'shish, taxrirlash, yangilash, o'chirish
+          funksiyalari mavjud.
+        </p>
+      </div>
     </div>
+    <div class="col-md-6">
+      <div class="border-bottom">
+        Kursga qo'shiosh &amp; Bo'limi
+        <label
+          class="switch switch-text switch-success switch-pill"
+          style="float: right"
+        >
+          <input type="checkbox" class="switch-input" checked="true" />
+          <span data-on="On" data-off="Off" class="switch-label"></span>
+          <span class="switch-handle"></span>
+        </label>
+        <p class="text-muted">
+          Ushbu bo'lim o'zuvchilarni kursga qo'shish bo'liminiki
+          <i class="info-text py-0 px-2 bg-success text-light">Yoniq</i> yoki
+          <i class="info-text py-0 px-2 bg-danger text-light">O'chiq</i>
+        </p>
+      </div>
+
+      <div class="border-bottom mt-3">
+        <a class="link" href="{% url 'programs' %}">
+          Fanlar &amp; Kurslar &raquo;</a
+        >
+        <p class="text-muted">
+          Bu bo'limda fanlar hamda kurslarni qo'shish, taxrirlash, o'chirish
+          funksiyalari mavjud.
+        </p>
+      </div>
+
+      <div class="border-bottom mt-3">
+        <a class="link" href="{% url 'course_allocation_view' %}">
+          Course Allocations &raquo;</a
+        >
+        <p class="text-muted">
+          CRUD (Create, Retrieve, Update &amp; Delete) course allocations
+        </p>
+      </div>
+
+      <div class="mt-3">
+        Manage<a class="link" href="{% url 'home' %}">
+          News &amp; Events &raquo;</a
+        >
+        <p class="text-muted">
+          CRUD (Create, Retrieve, Update &amp; Delete) News &amp; Events
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 
 {% endblock %}

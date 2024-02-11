@@ -13,11 +13,11 @@ title %} {% load crispy_forms_tags %} {% block content %}
     <li class="breadcrumb-item">
       <a href="{% url 'course_detail' course.slug %}">{{ course }}</a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">File upload</li>
+    <li class="breadcrumb-item active" aria-current="page">Fayl yuklash</li>
   </ol>
 </nav>
 
-<p class="title-1">File upload for {{ course|truncatechars:25 }}</p>
+<p class="title-1">Fayl yuklash uchun {{ course|truncatechars:25 }}</p>
 <br /><br />
 
 {% include 'snippets/messages.html' %}

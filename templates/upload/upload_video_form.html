@@ -32,12 +32,12 @@ title %} {% load crispy_forms_tags %} {% block content %}
           {% csrf_token %} {{ form|crispy }}
 
           <div class="form-group">
-            <button class="btn btn-primary" type="submit">Upload</button>
+            <button class="btn btn-primary" type="submit">Yuklash</button>
             <a
               class="btn btn-danger"
               href="{% url 'course_detail' course.slug %}"
               style="float: right"
-              >Cancel</a
+              >Orqaga</a
             >
           </div>
         </form>

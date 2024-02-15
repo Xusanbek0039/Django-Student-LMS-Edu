@@ -304,7 +304,7 @@ def deallocate_course(request, pk):
 
 
 # ########################################################
-# File Upload views
+# File yuklash bo'limi
 # ########################################################
 @login_required
 @lecturer_required
@@ -326,7 +326,7 @@ def handle_file_upload(request, slug):
     return render(
         request,
         "upload/upload_file_form.html",
-        {"title": "File Upload", "form": form, "course": course},
+        {"title": "Fayl yuklash", "form": form, "course": course},
     )
 
 
@@ -364,7 +364,7 @@ def handle_file_delete(request, slug, file_id):
 
 
 # ########################################################
-# Video Upload views
+# Video yuklash 
 # ########################################################
 @login_required
 @lecturer_required
@@ -386,7 +386,7 @@ def handle_video_upload(request, slug):
     return render(
         request,
         "upload/upload_video_form.html",
-        {"title": "Video Upload", "form": form, "course": course},
+        {"title": "Video yuklash", "form": form, "course": course},
     )
 
 

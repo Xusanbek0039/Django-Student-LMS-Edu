@@ -1,14 +1,16 @@
-{% extends 'base.html' %} {% block title %}{{ title }} | Student LMS{% endblock
-title %} {% load crispy_forms_tags %} {% block content %}
+{% extends 'base.html' %}
 
+{% block title %}{{ title }} | Student LMS{% endblock title %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
 <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/">Bosh saxifa</a></li>
     <li class="breadcrumb-item"><a href="{% url 'programs' %}">Fanlar</a></li>
     <li class="breadcrumb-item">
-      <a href="{% url 'program_detail' course.program.id %}"
-        >{{ course.program }}</a
-      >
+      <a href="{% url 'program_detail' course.program.id %}">{{ course.program }}</a>
     </li>
     <li class="breadcrumb-item">
       <a href="{% url 'course_detail' course.slug %}">{{ course }}</a>
@@ -29,21 +31,16 @@ title %} {% load crispy_forms_tags %} {% block content %}
 
       <div class="card-body">
         <form action="" method="POST" enctype="multipart/form-data">
-          {% csrf_token %} {{ form|crispy }}
+          {% csrf_token %}
+          {{ form|crispy }}
 
           <div class="form-group">
             <button class="btn btn-primary" type="submit">Yuklash</button>
-            <a
-              class="btn btn-danger"
-              href="{% url 'course_detail' course.slug %}"
-              style="float: right"
-              >Oraqaga</a
-            >
+            <a class="btn btn-danger" href="{% url 'course_detail' course.slug %}" style="float: right">Oraqaga</a>
           </div>
         </form>
       </div>
     </div>
   </div>
-
-  {% endblock content %}
 </div>
+{% endblock %}

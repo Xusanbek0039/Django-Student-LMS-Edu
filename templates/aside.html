@@ -110,12 +110,12 @@
 			</li>
 			{% endif %}
 			<br />
-			<p class="ml-3" style="text-align: center;">&RightArrow; Others</p>
+			<p class="ml-3" style="text-align: center;">&RightArrow; Qo'shimcha sozlamalar</p>
 			<li class="{% if request.path == ep %}active{% endif %}">
 				<a href="{% url 'edit_profile' %}"><i class="fas fa-cogs"></i>Hisob sozlamalari</a>
 			</li>
 			<li class="{% if request.path == cp %}active{% endif %}">
-				<a href="{% url 'change_password' %}"><i class="fas fa-key"></i>Parolni o'zgartirish</a>
+				<a href="{% url 'change_password' %}"><i class="fas fa-key"></i>Kirish parolini o'zgartirish</a>
 			</li>
 		</ul>
 	</div>

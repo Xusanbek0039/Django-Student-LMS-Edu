@@ -5,37 +5,40 @@
 {% load static %}
 
 
-<div class="col-md-4 mx-auto mt-5" >
-  <div class="card" style="background-image: none;">
-    <div class="form-title" >
-      <i class="fas fa-lock me-2"></i>
-      Shaxsiy Hisobga kirish
-      <img src="{% static 'img/favicon.png'%}" alt="Nimadur xato bajarildi!" width="90" height="70">
-    </div>
-    <div class="card-body">
-        <form action="" method="POST" id="login-form">{% csrf_token %}
-          <div class="form-group mb-3">
-              <label class="mb-2" for="username_id"><i class="fas fa-address-card me-2"></i>Foydalanuvchi ismi</label>
-              <input type="text" name="username" id="username_id" class="form-control" required>
-              <div id="message-wrapper"></div>
-          </div>
-          <div class="form-group mb-3">
-              <label class="mb-2" for="password_id"><i class="fas fa-key me-2"></i>Fayodalanuvchi paroli</label>
-              <input type="password" name="password" id="password_id" class="form-control" required>
-          </div>
-          {% if form.errors %}
-                <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Ism & Parol noto'g'ri!</span><br>
-          {% endif %}
-      
-          <center><button type="submit" class="btn btn-primary" id="login-btn"><i class="fas fa-sign-in-alt"></i><small> Tizimga kirish </small></button></center>
-        </form>
-        <br>
-        <div class="login-bottom">
-          <a href="{% url 'password_reset' %}" class="link">Parolni unutdingizmi ?</a>
-        </div>
+
+<body style="background-image: url({% static 'img/login-bac.jpeg' %});">
+  <div class="col-md-4 mx-auto mt-5" >
+    <div class="card" style="background-color: rgba(255, 255, 255, 0.536);">
+      <div class="form-title" >
+        <i class="fas fa-lock me-2"></i>
+        Shaxsiy Hisobga kirish
+        <img src="{% static 'img/favicon.png'%}" alt="Nimadur xato bajarildi!" width="90" height="80">
       </div>
+      <div class="card-body">
+          <form action="" method="POST" id="login-form">{% csrf_token %}
+            <div class="form-group mb-3">
+                <label class="mb-2" for="username_id"><i class="fas fa-address-card me-2"></i>Foydalanuvchi ismi</label>
+                <input type="text" name="username" id="username_id" class="form-control" required>
+                <div id="message-wrapper"></div>
+            </div>
+            <div class="form-group mb-3">
+                <label class="mb-2" for="password_id"><i class="fas fa-key me-2"></i>Fayodalanuvchi paroli</label>
+                <input type="password" name="password" id="password_id" class="form-control" required>
+            </div>
+            {% if form.errors %}
+                  <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Ism & Parol noto'g'ri!</span><br>
+            {% endif %}
+        
+            <center><button type="submit" class="btn btn-primary" id="login-btn"><i class="fas fa-sign-in-alt"></i><small> Tizimga kirish </small></button></center>
+          </form>
+          <br>
+          <div class="login-bottom" style="color: aliceblue;">
+            <a href="{% url 'password_reset' %}" class="link" >Parolni unutdingizmi ?</a>
+          </div>
+        </div>
+    </div>
   </div>
-</div>
+</body>
 {% endblock content %}
 
 {% block js %}

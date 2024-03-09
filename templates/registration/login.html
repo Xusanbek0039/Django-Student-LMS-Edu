@@ -16,12 +16,12 @@
       </div>
       <div class="card-body">
           <form action="" method="POST" id="login-form">{% csrf_token %}
-            <div class="form-group mb-3">
-                <label class="mb-2" for="username_id"><i class="fas fa-address-card me-2"></i>Foydalanuvchi ismi</label>
+            <div class="form-group mb-3"  style="color: aliceblue;">
+                <label class="mb-2" for="username_id"><i class="fas fa-address-card me-2" style="color: aliceblue;"></i>Foydalanuvchi nomi</label>
                 <input type="text" name="username" id="username_id" class="form-control" required>
                 <div id="message-wrapper"></div>
             </div>
-            <div class="form-group mb-3">
+            <div class="form-group mb-3"  style="color: aliceblue;">
                 <label class="mb-2" for="password_id"><i class="fas fa-key me-2"></i>Fayodalanuvchi paroli</label>
                 <input type="password" name="password" id="password_id" class="form-control" required>
             </div>

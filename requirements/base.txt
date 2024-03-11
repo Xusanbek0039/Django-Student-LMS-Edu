@@ -20,3 +20,5 @@ django-jet
 django-crispy_forms
 crispy_bootstrap5
 django-rest_framework
+django-filter
+django-model_utils

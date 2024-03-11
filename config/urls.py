@@ -7,10 +7,10 @@ from django.views import defaults as default_views
 admin.site.site_header = "Dj-LMS Admin"
 
 urlpatterns = [
-    path("jet/", include("jet.urls", "jet")),  # Django JET URLS
-    path(
-        "jet/dashboard/", include("jet.dashboard.urls", "jet-dashboard")
-    ),  # Django JET dashboard URLS
+    # path("jet/", include("jet.urls", "jet")),  # Django JET URLS
+    # path(
+    #     "jet/dashboard/", include("jet.dashboard.urls", "jet-dashboard")
+    # ),  # Django JET dashboard URLS
     path("", include("core.urls")),
     path("accounts/", include("accounts.urls")),
     path("programs/", include("course.urls")),

@@ -1,5 +1,0 @@
-
-psycopg2-binary
-
-black
-gunicorn

@@ -3,3 +3,4 @@ psycopg2
 django-storages
 django-anymail
 pillow
+gunicorn

@@ -1,0 +1,34 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pytz = "==2022.7"
+pillow = "*"
+whitenoise = "*"
+django = "*"
+django-model-utils = "*"
+django-crispy-forms = "*"
+crispy-bootstrap5 = "*"
+django-filter = "*"
+djangorestframework = "==3.14.0"
+django-cors-headers = "==3.13.0"
+reportlab = "*"
+django-jet-reboot = "==1.3.5"
+python-decouple = "==3.8"
+stripe = "==5.5.0"
+gopay = "==2.0.1"
+gunicorn = "*"
+django-jet = "*"
+django-rest-framework = "*"
+psycopg2-binary = "*"
+black = "*"
+psycopg2 = "*"
+django-storages = "*"
+django-anymail = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"

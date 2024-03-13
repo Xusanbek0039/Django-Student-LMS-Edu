@@ -15,14 +15,14 @@
 </nav>
 
 <div class="row col-12 justify-content-between">
-	<div class="header-title-md">{% trans "Quiz title" %}: {{ sitting.quiz.title }}</div>
-	<em class="info-text title-danger">{% trans "Category" %}: {{ sitting.quiz.category }}</em>
+	<div class="header-title-md">{% trans "Test nomi" %}: {{ sitting.quiz.title }}</div>
+	<em class="info-text title-danger">{% trans "Test turi" %}: {{ sitting.quiz.category }}</em>
 </div>
 
 <p>{{ sitting.quiz.description }}</p>
 <hr>
-<p><b>{% trans "User" %}:</b> {{ sitting.user }}</p>
-<p><b>{% trans "Completed" %}:</b> {{ sitting.end|date }}</p>
+<p><b>{% trans "Foydalanuvchi" %}:</b> {{ sitting.user }}</p>
+<p><b>{% trans "Bajarildi" %}:</b> {{ sitting.end|date }}</p>
 <p><b>{% trans "Score" %}:</b> {{ sitting.get_percent_correct }}%</p>
 <!-- <p><b>{% trans "Start" %}:</b> {{ sitting.start }}</p>
 <p><b>{% trans "End" %}:</b> {{ sitting.end }}</p> -->

@@ -24,7 +24,6 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <!-- <div class="container"> -->
                             <div hidden>
                                 <label for="course">{{ form.course.label }}</label><br> {{ form.course }}
                                 <span class="danger">{{ form.course.errors }}</span>
@@ -32,22 +31,14 @@
                             </div>                    
                             {{ form.category|as_crispy_field }}                    
                             {{ form.title|as_crispy_field }}
-                            <!-- <div class="mb-2">
-                                <label for="max_questions">{{ form.max_questions.label }}</label>
-                                <input class="form-control" type="number" name="max_questions" min="0" id="id_max_questions">
-                                <span class="danger">{{ form.max_questions.errors }}</span>
-                                <small class="d-block text-muted">Number of questions to be answered on each attempt.</small>
-                            </div> -->
                             {{ form.pass_mark|as_crispy_field }}
                             {{ form.description|as_crispy_field }}
-                        <!-- </div> -->
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <!-- <div class="container"> -->
                         <div hidden>
                             <label for="questions">{{ form.questions.label }}</label><br> {{ form.questions }}
                             <span class="danger">{{ form.questions.errors }}</span>

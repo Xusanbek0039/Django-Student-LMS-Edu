@@ -47,7 +47,7 @@ urlpatterns = [
     path("students/<int:pk>/delete/", delete_student, name="student_delete"),
     path("parents/add/", ParentAdd.as_view(), name="add_parent"),
     path("ajax/validate-username/", validate_username, name="validate_username"),
-    path("register/", register, name="register"),
+    # path("register/", register, name="register"),
     # path('add-student/', StudentAddView.as_view(), name='add_student'),
     # path('programs/course/delete/<int:pk>/', course_delete, name='delete_course'),
     # Setting urls

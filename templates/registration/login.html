@@ -6,24 +6,25 @@
 
 
 
-<body style="background-image: url({% static 'img/login-bac.jpeg' %});">
+<body style="background-image: url({% static 'img/login-bac.jpeg' %}); background-size: cover;">
+
   <div class="col-md-4 mx-auto mt-5" >
     <div class="card" style="background-color: rgba(255, 255, 255, 0.536);">
       <div class="form-title" >
         <i class="fas fa-lock me-2"></i>
-        Shaxsiy Hisobga kirish
-        <img src="{% static 'img/favicon.png'%}" alt="Nimadur xato bajarildi!" width="90" height="80">
+        Shaxsiy Hisobga kirish 
+        <img src="{% static 'img/favicon.ico'%}" alt="Nimadur xato bajarildi!"  width="30" height="30">
       </div>
       <div class="card-body">
           <form action="" method="POST" id="login-form">{% csrf_token %}
-            <div class="form-group mb-3"  style="color: aliceblue;">
-                <label class="mb-2" for="username_id"><i class="fas fa-address-card me-2" style="color: aliceblue;"></i>Foydalanuvchi nomi</label>
-                <input type="text" name="username" id="username_id" class="form-control" required>
+            <div class="form-group mb-3"  style="color: rgb(0, 0, 0);">
+                <label class="mb-2" for="username_id"><i class="fas fa-address-card me-2" style="color: rgb(0, 0, 0);" ></i>Foydalanuvchi nomi</label>
+                <input placeholder="Login kiriting" type="text" name="username" id="username_id" class="form-control" required>
                 <div id="message-wrapper"></div>
             </div>
-            <div class="form-group mb-3"  style="color: aliceblue;">
-                <label class="mb-2" for="password_id"><i class="fas fa-key me-2"></i>Fayodalanuvchi paroli</label>
-                <input type="password" name="password" id="password_id" class="form-control" required>
+            <div class="form-group mb-3"  style="color: rgb(2, 2, 2);">
+                <label class="mb-2" for="password_id"><i class="fas fa-key me-2" placeholder="Parolingiz"></i>Fayodalanuvchi paroli</label>
+                <input placeholder="Parol kiriting" type="password" name="password" id="password_id" class="form-control" required >
             </div>
             {% if form.errors %}
                   <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Ism & Parol noto'g'ri!</span><br>

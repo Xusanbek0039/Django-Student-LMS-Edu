@@ -23,7 +23,7 @@
 <hr>
 <p><b>{% trans "Foydalanuvchi" %}:</b> {{ sitting.user }}</p>
 <p><b>{% trans "Bajarildi" %}:</b> {{ sitting.end|date }}</p>
-<p><b>{% trans "Score" %}:</b> {{ sitting.get_percent_correct }}%</p>
+<p><b>{% trans "Natija" %}:</b> {{ sitting.get_percent_correct }}%</p>
 <!-- <p><b>{% trans "Start" %}:</b> {{ sitting.start }}</p>
 <p><b>{% trans "End" %}:</b> {{ sitting.end }}</p> -->
 
@@ -51,9 +51,9 @@
 	  <td>{{ question }}</td>
 	  <td>
 		{% if question.id in sitting.get_incorrect_questions %}
-		  <p>{% trans "incorrect" %}</p>
+		  <p>{% trans "Noto'gri." %}</p>
 		{% else %}
-		  <p>{% trans "Correct" %}</p>
+		  <p>{% trans "To'g'ri." %}</p>
 		{% endif %}
 	  </td>
 	  <td>

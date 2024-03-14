@@ -90,7 +90,7 @@ def quiz_delete(request, slug, pk):
     quiz = Quiz.objects.get(pk=pk)
     course = Course.objects.get(slug=slug)
     quiz.delete()
-    messages.success(request, f"muvafaqiyatli o'chirildi.")
+    messages.success(request, f"Muvafaqiyatli o'chirildi.")
     return redirect("quiz_index", quiz.course.slug)
 
 
@@ -183,12 +183,6 @@ class QuizUserProgressView(TemplateView):
 @method_decorator([login_required, lecturer_required], name="dispatch")
 class QuizMarkingList(QuizMarkerMixin, SittingFilterTitleMixin, ListView):
     model = Sitting
-
-    # def get_context_data(self, **kwargs):
-    #     context = super(QuizMarkingList, self).get_context_data(**kwargs)
-    #     context['queryset_counter'] = super(QuizMarkingList, self).get_queryset().filter(complete=True).filter(course__allocated_course__lecturer__pk=self.request.user.id).count()
-    #     context['marking_list'] = super(QuizMarkingList, self).get_queryset().filter(complete=True).filter(course__allocated_course__lecturer__pk=self.request.user.id)
-    #     return context
     def get_queryset(self):
         if self.request.user.is_superuser:
             queryset = super(QuizMarkingList, self).get_queryset().filter(complete=True)
@@ -248,7 +242,7 @@ class QuizTake(FormView):
         course = get_object_or_404(Course, pk=self.kwargs["pk"])
 
         if quizQuestions <= 0:
-            messages.warning(request, f"Question set of the quiz is empty. try later!")
+            messages.warning(request, f"Viktorinaning savollar to'plami bo'sh. keyinroq urinib ko'ring!")
             return redirect("quiz_index", self.course.slug)
 
         if self.quiz.draft and not request.user.has_perm("quiz.change_quiz"):
@@ -262,7 +256,7 @@ class QuizTake(FormView):
             # return render(request, self.single_complete_template_name)
             messages.info(
                 request,
-                f"You have already sat this exam and only one sitting is permitted",
+                f"Siz allaqachon bu imtihondan o'tgansiz va faqat bitta o'tirishga ruxsat berilgan.",
             )
             return redirect("quiz_index", self.course.slug)
 

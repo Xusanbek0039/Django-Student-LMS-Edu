@@ -25,7 +25,7 @@ cm = 2.54
 
 
 # ########################################################
-# Score Add & Add for
+# Natija qo'shish  & Qo'shish uchun 
 # ########################################################
 @login_required
 @lecturer_required
@@ -40,7 +40,7 @@ def add_score(request):
     ).first()
 
     if not current_session or not current_semester:
-        messages.error(request, "No active semester found.")
+        messages.error(request, "Faol semestr topilmadi.")
         return render(request, "result/add_score.html")
 
     # semester = Course.objects.filter(
@@ -89,7 +89,7 @@ def add_score_for(request, id):
             .filter(course__semester=current_semester)
         )
         context = {
-            "title": "Submit Score",
+            "title": "Hisobni yuborish",
             "courses": courses,
             "course": course,
             # "myclass": myclass,
@@ -192,7 +192,7 @@ def add_score_for(request, id):
             #     Result.objects.get_or_create(student=student.student, gpa=gpa,
             # semester=current_semester, level=student.student.level)
 
-        messages.success(request, "Successfully Recorded! ")
+        messages.success(request, "Muvaffaqiyatli yozib olindi! ")
         return HttpResponseRedirect(reverse_lazy("add_score_for", kwargs={"id": id}))
     return HttpResponseRedirect(reverse_lazy("add_score_for", kwargs={"id": id}))
 
@@ -322,7 +322,7 @@ def result_sheet_pdf_view(request, id):
 
     print("\nsettings.MEDIA_ROOT", settings.MEDIA_ROOT)
     print("\nsettings.STATICFILES_DIRS[0]", settings.STATICFILES_DIRS[0])
-    logo = settings.STATICFILES_DIRS[0] + "/img/dj-lms.png"
+    logo = settings.STATICFILES_DIRS[0] + "/img/favicon.png"
     im = Image(logo, 1 * inch, 1 * inch)
     im.__setattr__("_offs_x", -200)
     im.__setattr__("_offs_y", -45)
@@ -472,7 +472,7 @@ def course_registration_form(request):
     normal.fontName = "Helvetica"
     normal.fontSize = 12
     normal.leading = 18
-    title = "<b>EZOD UNIVERSITY OF TECHNOLOGY, ADAMA</b>"  # TODO: Make this dynamic
+    title = "<b>IT Creative o'quv markazi </b>"  # TODO: Make this dynamic
     title = Paragraph(title.upper(), normal)
     Story.append(title)
     style = getSampleStyleSheet()
@@ -483,7 +483,7 @@ def course_registration_form(request):
     school.fontSize = 10
     school.leading = 18
     school_title = (
-        "<b>SCHOOL OF ELECTRICAL ENGINEERING & COMPUTING</b>"  # TODO: Make this dynamic
+        "<b>IT Creative Elektron O'quv Bo'limi</b>"  # TODO: Make this dynamic
     )
     school_title = Paragraph(school_title.upper(), school)
     Story.append(school_title)
@@ -496,13 +496,13 @@ def course_registration_form(request):
     department.fontSize = 9
     department.leading = 18
     department_title = (
-        "<b>DEPARTMENT OF COMPUTER SCIENCE & ENGINEERING</b>"  # TODO: Make this dynamic
+        "<b>KOMPYUTER FANLARI VA MUHENDISLIK KAFEDRASI</b>"  # TODO: Make this dynamic
     )
     department_title = Paragraph(department_title, department)
     Story.append(department_title)
     Story.append(Spacer(1, 0.3 * inch))
 
-    title = "<b><u>STUDENT COURSE REGISTRATION FORM</u></b>"
+    title = "<b><u>O'quvchining kurs haqida malumotnomasi</u></b>"
     title = Paragraph(title.upper(), normal)
     Story.append(title)
     student = Student.objects.get(student__pk=request.user.id)
@@ -511,27 +511,28 @@ def course_registration_form(request):
     tbl_data = [
         [
             Paragraph(
-                "<b>Registration Number : " + request.user.username.upper() + "</b>",
+                "<b>Ro'yxatga olingan raqami : " + request.user.username.title() + "</b> ",
                 styles["Normal"],
             )
         ],
         [
             Paragraph(
-                "<b>Name : " + request.user.get_full_name.upper() + "</b>",
+                "<b>O'quvchi ism familiyasi : " + request.user.get_full_name.title() + "</b>",
                 styles["Normal"],
             )
         ],
         [
             Paragraph(
-                "<b>Session : " + current_session.session.upper() + "</b>",
+                "<b>Sessiya : " + current_session.session.upper() + "</b>",
                 styles["Normal"],
             ),
-            Paragraph("<b>Level: " + student.level + "</b>", styles["Normal"]),
+            Paragraph("<b>Daraja: " + student.level + "</b>", styles["Normal"]),
         ],
     ]
     tbl = Table(tbl_data)
     Story.append(tbl)
     Story.append(Spacer(1, 0.6 * inch))
+
 
     style = getSampleStyleSheet()
     semester = style["Normal"]
@@ -539,7 +540,7 @@ def course_registration_form(request):
     semester.fontName = "Helvetica"
     semester.fontSize = 9
     semester.leading = 18
-    semester_title = "<b>FIRST SEMESTER</b>"
+    semester_title = "<b>Birinchi semester</b>"
     semester_title = Paragraph(semester_title, semester)
     Story.append(semester_title)
 
@@ -549,11 +550,11 @@ def course_registration_form(request):
     count = 0
     header = [
         (
-            "S/No",
-            "Course Code",
-            "Course Title",
-            "Unit",
-            Paragraph("Name, Siganture of course lecturer & Date", style["Normal"]),
+            "Tartib raqam",
+            "Kurs kodi",
+            "Kurs nomi",
+            "Birligi",
+            Paragraph("IT Creative ", style["Normal"]),
         )
     ]
     table_header = Table(header, 1 * [1.4 * inch], 1 * [0.5 * inch])
@@ -616,7 +617,7 @@ def course_registration_form(request):
     semester.fontSize = 8
     semester.leading = 18
     semester_title = (
-        "<b>Total Second First Credit : " + str(first_semester_unit) + "</b>"
+        "<b>Qolgan kreditlar : " + str(first_semester_unit) + "</b>"
     )
     semester_title = Paragraph(semester_title, semester)
     Story.append(semester_title)
@@ -630,19 +631,19 @@ def course_registration_form(request):
     semester.fontName = "Helvetica"
     semester.fontSize = 9
     semester.leading = 18
-    semester_title = "<b>SECOND SEMESTER</b>"
+    semester_title = "<b>Ikkikchi semester</b>"
     semester_title = Paragraph(semester_title, semester)
     Story.append(semester_title)
     # SECOND SEMESTER
     count = 0
     header = [
         (
-            "S/No",
-            "Course Code",
-            "Course Title",
-            "Unit",
+            "Tartib raqam",
+            "Kurs kodi",
+            "Kurs nomi",
+            "Birlik",
             Paragraph(
-                "<b>Name, Signature of course lecturer & Date</b>", style["Normal"]
+                "<b>IT Creative </b>", style["Normal"]
             ),
         )
     ]
@@ -706,7 +707,7 @@ def course_registration_form(request):
     semester.fontSize = 8
     semester.leading = 18
     semester_title = (
-        "<b>Total Second Semester Credit : " + str(second_semester_unit) + "</b>"
+        "<b>Qolgan kreditlar  : " + str(second_semester_unit) + "</b>"
     )
     semester_title = Paragraph(semester_title, semester)
     Story.append(semester_title)
@@ -720,21 +721,18 @@ def course_registration_form(request):
     certification.leading = 18
     student = Student.objects.get(student__pk=request.user.id)
     certification_text = (
-        "CERTIFICATION OF REGISTRATION: I certify that <b>"
-        + str(request.user.get_full_name.upper())
-        + "</b>\
-    has been duly registered for the <b>"
-        + student.level
-        + " level </b> of study in the department\
-    of COMPUTER SICENCE & ENGINEERING and that the courses and credits \
-    registered are as approved by the senate of the University"
+        "CERTIFICATION OF REGISTRATION: Ushbu sertifikat <b>"
+        + str(request.user.get_full_name.title())
+        + "</b>uchun berilgan. " " IT Creative o'quv markazi tomonidan tasdiqlangan! " 
+    "<b>KOMPYUTER FANLARI VA MUHENDISLIK </b> " 
+ 
     )
     certification_text = Paragraph(certification_text, certification)
     Story.append(certification_text)
 
     # FIRST SEMESTER ENDS HERE
 
-    logo = settings.STATICFILES_DIRS[0] + "/img/dj-lms.png"
+    logo = settings.STATICFILES_DIRS[0] + "/img/favicon.png"
     im_logo = Image(logo, 1 * inch, 1 * inch)
     im_logo.__setattr__("_offs_x", -218)
     im_logo.__setattr__("_offs_y", 480)

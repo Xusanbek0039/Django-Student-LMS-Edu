@@ -725,7 +725,7 @@ def course_registration_form(request):
         "CERTIFICATION OF REGISTRATION: Ushbu sertifikat <b>"
         + str(request.user.get_full_name.title())
         + "</b>uchun berilgan. " " IT Creative o'quv markazi tomonidan tasdiqlangan! " 
-    "<b>KOMPYUTER FANLARI VA MUHENDISLIK </b> " 
+    "<b>KOMPYUTER FANLARI VA MUHENDISLIK  Bizning shior: Muvaffaqiyat kuchda. Kuch esa sizda.</b> " 
  
     )
     certification_text = Paragraph(certification_text, certification)

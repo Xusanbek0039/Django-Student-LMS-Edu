@@ -289,7 +289,7 @@ def result_sheet_pdf_view(request, id):
         + str(current_session)
         + "_"
         + str(course)
-        + "_resultSheet.pdf"
+        + ".pdf"
     )
     fname = fname.replace("/", "-")
     flocation = settings.MEDIA_ROOT + "/result_sheet/" + fname
@@ -496,8 +496,9 @@ def course_registration_form(request):
     department.fontSize = 9
     department.leading = 18
     department_title = (
-        "<b>KOMPYUTER FANLARI VA MUHENDISLIK KAFEDRASI</b>"  # TODO: Make this dynamic
+        "<b>KOMPYUTER FANLARI VA MUHENDISLIK KAFEDRASI</b>" 
     )
+    
     department_title = Paragraph(department_title, department)
     Story.append(department_title)
     Story.append(Spacer(1, 0.3 * inch))

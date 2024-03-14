@@ -1,5 +1,4 @@
-{% extends "base.html" %} {% block title %}Izlash | Student LMS{% endblock title
-%} {% load class_name %} {% block content %}
+{% extends "base.html" %}  {% load class_name %} {% block content %}
 
 <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
   <ol class="breadcrumb">
@@ -26,7 +25,7 @@
     display: block;
     border-left: 4px solid #6cbd45;
     padding: 1rem !important;
-    background: #f8f9fa;
+    background: #ffffff;
     border-radius: 3px;
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
     transition: 0.5s;
@@ -45,155 +44,107 @@
   }
   .class-item:hover {
     transform: translateX(15px);
-    background: #6cbd45;
+    background: #456fbd;
   }
   .class-item:hover h4 a {
     color: #fff;
   }
   .class-item:hover p,
   .class-item:hover span {
-    color: rgb(158, 239, 119);
+    color: rgb(255, 255, 255);
   }
 </style>
-
-<div
-  class="card p-3"
-  style="box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3); border-radius: 10px"
->
-  <h5 class="text-muted m-0">
-    {{ count }} -ta natija
-    <b><em class="text-orange"> {{ query }} uchun</em></b>
-  </h5>
-  <hr />
-  {% for object in object_list %} {% with object|class_name as klass %} {% if
-  klass == "Program" %}
-  <div class="session-wrapper">
-    <div class="session"><div class="info-text bg-orange">Fan</div></div>
-  </div>
-  <div class="col-12 class-item">
-    <!-- <p><b>Program of</b> {{ object }}</p> -->
-    <h4>
-      <a href="{{ object.get_absolute_url }}"><b>{{ object.title}}</b></a>
-    </h4>
-    <p>{{ object.summary }}</p>
-  </div>
-  <hr />
-
-  {% elif klass == "Course" %}
-  <div class="session-wrapper">
-    <div class="session"><div class="info-text bg-orange">Kurs</div></div>
-  </div>
-  <div class="col-12 class-item">
-    <p><b></b> {{ object.program }}</p>
-    <h4>
-      <a href="{{ object.get_absolute_url }}"><b>{{ object }}</b></a>
-    </h4>
-    <p>{{ object.summary }}</p>
-  </div>
-  <hr />
-
-  {% elif klass == "NewsAndEvents" %}
-  <div class="session-wrapper">
-    <div class="session">
-      <div class="info-text bg-orange">Yangilik yoki Voqelik</div>
-    </div>
-  </div>
-  <div class="col-12 class-item">
-    <p><b>Sana: </b> {{ object.updated_date|timesince }} oldin</p>
-    <h4>
-      <a href="{{ object.get_absolute_url }}"><b>{{ object.title }}</b></a>
-    </h4>
-    <p>{{ object.summary }}</p>
-  </div>
-  <hr />
-
-  {% elif klass == "Quiz" %}
-  <div class="session-wrapper">
-    <div class="session"><div class="info-text bg-orange">Test</div></div>
-  </div>
-  <div class="col-12 class-item">
-    <p>{{ object.category }} test, <b>Kurs:</b> {{ object.course }}</p>
-    <h4>
-      <a href="{{ object.get_absolute_url }}"><b>{{ object.title }}</b></a>
-    </h4>
-    <p>{{ object.description }}</p>
-  </div>
-  <hr />
-
-  {% else %}
-  <div class="session-wrapper">
-    <div class="session"><div class="info-text bg-orange">Fan</div></div>
-  </div>
-  <div class="col-12 col-lg-8 offset-lg-4">
-    <a href="{{ object.get_absolute_url }}" class="class-item d-flex"
-      >{{ object }} | {{ object|class_name }}</a
-    >
-  </div>
-  <hr />
-  <div class="col-12 class-item">
-    <h4>
-      <a href="{{ object.get_absolute_url }}"
-        >{{ object }} | <b>{{ object|class_name }}</b></a
-      >
-    </h4>
-    <p>{{ object.description }}</p>
-  </div>
-  <hr />
-  {% endif %} {% endwith %} {% empty %}
-
-  <div class="row">
-    <div class="col-12 col-md-6 mx-auto py-5">
-      <form method="GET" action=".">
-        <div
-          class="input-group form-group-no-border mx-auto"
-          style="margin-bottom: 0px; font-size: 32px"
-        >
-          <input
-            type="text"
-            name="q"
-            data-toggle="popover"
-            data-placement="bottom"
-            data-content="Press enter to search"
-            class="form-control cfe-nav"
-            placeholder="Search..."
-            value="{{ request.GET.q }}"
-            data-original-title=""
-            title=""
-            autofocus="autofocus"
-            required
-          />
-          <button type="submit" class="btn btn-dark">
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </button>
+<body style="background-color: url(https://w.forfun.com/fetch/90/9007c47927f2278c520f30d2c92cb704.jpeg); background-size: cover;">
+  
+  <div class="card p-3" style="box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3); border-radius: 10px">
+    <h5 class="text-muted m-0">
+      {{ count }} -ta natija
+      <b><em class="text-orange"> {{ query }} uchun</em></b>
+    </h5>
+    <hr />
+    {% for object in object_list %}
+      {% with object|class_name as klass %}
+        {% if klass == "Program" %}
+          <div class="session-wrapper">
+            <div class="session"><div class="info-text bg-orange">Fan</div></div>
+          </div>
+          <div class="col-12 class-item">
+            <h4><a href="{{ object.get_absolute_url }}"><b>{{ object.title }}</b></a></h4>
+            <p>{{ object.summary }}</p>
+          </div>
+          <hr />
+        {% elif klass == "course" %}
+          <div class="session-wrapper">
+            <div class="session"><div class="info-text bg-orange">Kurs</div></div>
+          </div>
+          <div class="col-12 class-item">
+            <p><b>Program of</b> {{ object.program }}</p>
+            <h4><a href="{{ object.get_absolute_url }}"><b>{{ object }}</b></a></h4>
+            <p>{{ object.summary }}</p>
+          </div>
+          <hr />
+        {% elif klass == "NewsAndEvents" %}
+          <div class="session-wrapper">
+            <div class="session">
+              <div class="info-text bg-orange">Yangilik yoki Voqelik</div>
+            </div>
+          </div>
+          <div class="col-12 class-item">
+            <p><b>Sana: </b> {{ object.updated_date|timesince }} oldin</p>
+            <h4><a href="{{ object.get_absolute_url }}"><b>{{ object.title }}</b></a></h4>
+            <p>{{ object.summary }}</p>
+          </div>
+          <hr />
+        {% elif klass == "Quiz" %}
+          <div class="session-wrapper">
+            <div class="session"><div class="info-text bg-orange">Test</div></div>
+          </div>
+          <div class="col-12 class-item">
+            <p>{{ object.category }} test, <b>Kurs:</b> {{ object.course }}</p>
+            <h4><a href="{{ object.get_absolute_url }}"><b>{{ object.title }}</b></a></h4>
+            <p>{{ object.description }}</p>
+          </div>
+          <hr />
+        {% else %}
+          <div class="session-wrapper">
+            <div class="session"><div class="info-text bg-orange">Fan</div></div>
+          </div>
+          <div class="col-12 col-lg-8">
+            <a href="{{ object.get_absolute_url }}" class="class-item d-flex">{{ object }} | {{ object|class_name }}</a>
+          </div>
+          <hr />
+          <div class="col-12 class-item">
+            <h4><a href="{{ object.get_absolute_url }}">{{ object }} | <b>{{ object|class_name }}</b></a></h4>
+            <p>{{ object.description }}</p>
+          </div>
+          <hr />
+        {% endif %}
+      {% endwith %}
+    {% empty %}
+      <div class="row">
+        <div class="col-12 col-md-6 mx-auto py-5">
+          <form method="GET" action=".">
+            <div class="input-group form-group-no-border mx-auto" style="margin-bottom: 0px; font-size: 32px">
+              <input type="text" name="q" data-toggle="popover" data-placement="bottom" data-content="Press enter to search" class="form-control cfe-nav" placeholder="Search..." value="{{ request.GET.q }}" data-original-title="" title="" autofocus="autofocus" required />
+              <button type="submit" class="btn btn-dark">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+            </div>
+          </form>
         </div>
-      </form>
-    </div>
-    <div class="col-12 pl-5">
-      <h5>Izlash uchun:</h5>
-      <ul class="pl-3">
-        <li>
-          Fanlardan <span class="text-orange">&gt;</span> Fan qidirish uchun
-          iltimos izlamoqchi bo'lgan faningiz nomini to'lliq yozing.
-        </li>
-        <li>
-          Kurslardan <span class="text-orange">&gt;</span> Kurs qidirmoqchi
-          bo'lsangiz iltimos kurs nomini to'g'ri kiriting.
-        </li>
-        <li>
-          Yangiliklardan <span class="text-orange">&gt;</span> Qandaydur habar
-          yoki yangilik izlayotgan bo'lsangiz iltimos habardan bir parcha
-          kiriting.
-        </li>
-
-        <li>
-          Savollardan <span class="text-orange">&gt;</span> Test qidirayotgan
-          bo'lsangiz iltimos test nomini to'g'ri yozing.
-        </li>
-      </ul>
-    </div>
+        <div class="col-12 pl-5">
+          <h5>Izlash uchun:</h5>
+          <ul class="pl-3">
+            <li>Fanlardan <span class="text-orange">&gt;</span> Fan qidirish uchun iltimos izlamoqchi bo'lgan faningiz nomini to'liq yozing.</li>
+            <li>Kurslardan <span class="text-orange">&gt;</span> Kurs qidirmoqchi bo'lsangiz iltimos kurs nomini to'g'ri kiriting.</li>
+            <li>Yangiliklardan <span class="text-orange">&gt;</span> Qandaydur habar yoki yangilik izlayotgan bo'lsangiz iltimos habardan bir parcha kiriting.</li>
+            <li>Savollardan <span class="text-orange">&gt;</span> Test qidirayotgan bo'lsangiz iltimos test nomini to'g'ri yozing.</li>
+          </ul>
+        </div>
+      </div>
+    {% endfor %}
   </div>
 
-  {% endfor %}
-</div>
+  {% endblock content %}
 
-{% endblock content %}
+</body>

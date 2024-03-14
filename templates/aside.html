@@ -64,10 +64,12 @@
 			</li>
 			{% endif %}
 
+			{% if request.user.is_superuser or request.user.is_lecturer %}
 			<li class="{% if request.path == pro %}active{% endif %}">
 				<a href="{% url 'programs' %}"><i class="fas fa-book-open"></i>Fanlar & Kurslar</a>
 			</li>
-
+			{% endif %}
+			
 			{% if request.user.is_superuser or request.user.is_lecturer %}
 			<li class="{% if request.path == qce %}active{% endif %}">
 				<a href="{% url 'quiz_marking' %}"><i class="fas fa-check-double"></i>To'liq imtihonlar</a>
@@ -120,16 +122,8 @@
 		</ul>
 	</div>
 
-	<footer class="card-footer mt-5 pt-3 pb-5 px-2">
-		<div class="col-12">
-			<p class="small m-0">
-				Bizning <a href="#"> Maxfiylik </a> hamda <a href="#"> Foydalanish shartlari. </a>
-				<br />Student LMS &copy; <script>document.write(new Date().getFullYear());</script>
-				<br />
-			</p>
-			<a href="https://github.com/xusanbek0071" class="btn btn-sm btn-dark mx-auto" target="_blank">
-				👨‍💻 Loyiha muallifi
-			</a>
-		</div>
-	</footer>
+
 </div>
+
+
+

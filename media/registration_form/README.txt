@@ -1,1 +1,1 @@
-This directory responsible for storing generated registration slip PDF files
+Ushbu katalog yaratilgan ro'yxatga olish varaqasi PDF fayllarini saqlash uchun javobgardir

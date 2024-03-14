@@ -1,1 +1,1 @@
-This directory responsible for storing generated student result PDF files
+Ushbu katalog talaba natijalarining PDF fayllarini saqlash uchun javobgardir.

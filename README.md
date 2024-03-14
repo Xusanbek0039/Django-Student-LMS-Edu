@@ -1,6 +1,6 @@
-# Udemy-Clone-Django
+# Leraning management sistem 
 
-**Udemy clone sayti**
+**O'quvchilarni online nazorat qilish uchun ishlab chiqilgan**
 
 **Sayt strukturasi hali tugatilinmagan!**
 
@@ -12,25 +12,28 @@
 
 **1-qadam:**
 ```
-git clone https://github.com/Xusanbek0071/Django-Corsera-clone.git
+https://github.com/Xusanbek0071/Django-Student-LMS-Edu.git
 ```
-
-**2-qadam:**
+**2-qadam**
+```
+pipenv shell
+```
+**3-qadam:**
 ```
 python manage.py makemigrations
 ```
 
-**3-qadam:**
+**4-qadam:**
 ```
 python manage.py migrate
 ```
 
-**4-qadam:**
+**5-qadam:**
 ```
 python manage.py runserver
 ```
 
-**5-qadam:**
+**6-qadam:**
 ```
 http://127.0.0.1:8000/
 ```
@@ -51,6 +54,9 @@ Iltimos agarda qandaydir taklif yoki mulohaza uchun menga murojat qiling:
   </a>
     <a href="https://instagram.com/husanbek_dev" target="_blank">
     <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/instagram/default.svg" width="52" height="40" alt="linkedin logo"  />
+        <a href="https://instagram.com/husanbek_dev" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png" width="52" height="40" alt="linkedin logo"  />
+
   </a>
   
 </div>

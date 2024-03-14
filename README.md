@@ -51,12 +51,14 @@ Iltimos agarda qandaydir taklif yoki mulohaza uchun menga murojat qiling:
 <div align="left">
   <a href="https://t.me/mbin_dev_0071" target="_blank">
     <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/telegram/default.svg" width="52" height="40" alt="Telegram logo"  />
+        <hr>
   </a>
     <a href="https://instagram.com/husanbek_dev" target="_blank">
     <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/instagram/default.svg" width="52" height="40" alt="Instagram logo"  />
+        <hr>
         <a href="https://itcreative0071@gmail.com" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png" width="52" height="40" alt="E-pochta logo"  />
-    <br>
+    <hr>
     <a href="https://github.com/xusanbek0071" target="_blank">
     <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="52" height="40" alt="Git-Hub logo"  />
   </a>

@@ -47,7 +47,7 @@
 
     <div class="row mb-5">
         <div class="col-md-12 p-0">
-            <p class="form-title m-0">video darslar</p>
+            <p class="form-title m-0">Video darslar</p>
             <div class="table-responsive">
                 <table class="table table-shadow table-light table-striped m-0">
                     <thead>
@@ -56,6 +56,7 @@
                             <th>Video nomi</th>
                             <th>Yuklangan sana</th>
                             <th>Online ko'rish</th>
+                            <th>Videoni yuklab olish</th>
                             {% if request.user.is_superuser or request.user.is_lecturer %}
                             <th>Boshqa</th>
                             {% endif %}
@@ -76,6 +77,12 @@
                                     <a class="download-btn" href="{{ video.get_absolute_url }}"
                                         title="Qurilmangizga yuklab oling">
                                         <i class="fas fa-play me-1"></i>Videoni ko'rish</a>
+                                </div>
+                            </th>
+                            <th>
+                                <div>
+                                    <a class="download-btn" href="{{ video.video.url }}" title="Qurilmangizga yuklab oling">
+                                        <i class="fas fa-download me-1"></i>Yuklab olish</a>
                                 </div>
                             </th>
 
@@ -201,7 +208,7 @@
 </div>
 
 <div class="site-section mb-5 mt-4">
-    <div class="title">Ustoz(lar)</div>
+    <div class="title">Kursni olib boruvchi ustoz:</div>
     <br>
     <br>
     <div class="container-fluid">
@@ -214,15 +221,15 @@
                         <img class="avatar avatar-lg" src="{{ lecturer.lecturer.picture.url }}" alt="">
                         {% endif %}
                         <h5 class="fw-bold mb-0">{{ lecturer|title }}</h5>
-                        <p class="mb-0">{{ lecturer.lecturer.email }}</p>
-                        <p class="text-muted small">Ustozlar bu yerga kursning elektron vaqriantlarini yuklab borishadi.</p>
+                        <p class="mb-0">E-pochta{{ lecturer.lecturer.email }}</p>
+                        <b class="text-muted small">Muvaffaqiyat kuchda. Kuch esa sizda.</b>
                         <p>
-                            <a class="btn btn-sm btn-secondary" href="#" role="button"><i
-                                    class="fab fa-twitter"></i></a>
-                            <a class="btn btn-sm btn-secondary" href="#" role="button"><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-sm btn-secondary" href="#" role="button"><i
-                                    class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-sm btn-secondary" href="https://t.me/it_creative_news" role="button"><i
+                                    class="fab fa-telegram"></i></a>
+                            <a class="btn btn-sm btn-secondary" href="https://github.com/Xusanbek0071" role="button"><i
+                                    class="fab fa-github"></i></a>
+                            <a class="btn btn-sm btn-secondary" href="https://github.com/Xusanbek0071" role="button"><i
+                                    class="fab fa-instagram"></i></a>
                         </p>
                     </div>
                 </div>

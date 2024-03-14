@@ -165,7 +165,7 @@ class Upload(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     file = models.FileField(
         upload_to="course_files/",
-        help_text="Valid Files: pdf, docx, doc, xls, xlsx, ppt, pptx, zip, rar, 7zip",
+        help_text="Yuklash mumkin: pdf, docx, doc, xls, xlsx, ppt, pptx, zip, rar, 7zip",
         validators=[
             FileExtensionValidator(
                 [
@@ -213,18 +213,18 @@ class Upload(models.Model):
 def log_save(sender, instance, created, **kwargs):
     if created:
         ActivityLog.objects.create(
-            message=f"The file '{instance.title}' has been uploaded to the course '{instance.course}'."
+            message=f"File nomi '{instance.title}' muvafaqiyatli yuklandi '{instance.course}'."
         )
     else:
         ActivityLog.objects.create(
-            message=f"The file '{instance.title}' of the course '{instance.course}' has been updated."
+            message=f"Fayl nomi '{instance.title}' Kurs nomi '{instance.course}' yangilandi."
         )
 
 
 @receiver(post_delete, sender=Upload)
 def log_delete(sender, instance, **kwargs):
     ActivityLog.objects.create(
-        message=f"The file '{instance.title}' of the course '{instance.course}' has been deleted."
+        message=f"Fayl nomi '{instance.title}' Kurs nomi '{instance.course}' o`chirildi"
     )
 
 
@@ -234,7 +234,7 @@ class UploadVideo(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     video = models.FileField(
         upload_to="course_videos/",
-        help_text="Valid video formats: mp4, mkv, wmv, 3gp, f4v, avi, mp3",
+        help_text="Video formatlar: mp4, mkv, wmv, 3gp, f4v, avi, mp3",
         validators=[
             FileExtensionValidator(["mp4", "mkv", "wmv", "3gp", "f4v", "avi", "mp3"])
         ],
@@ -267,23 +267,22 @@ pre_save.connect(video_pre_save_receiver, sender=UploadVideo)
 def log_save(sender, instance, created, **kwargs):
     if created:
         ActivityLog.objects.create(
-            message=f"The video '{instance.title}' has been uploaded to the course {instance.course}."
+            message=f"Video nomi '{instance.title}' muvafaqiyatli {instance.course} kursiga yuklandi."
         )
     else:
         ActivityLog.objects.create(
-            message=f"The video '{instance.title}' of the course '{instance.course}' has been updated."
+            message=f"Video nomi '{instance.title}' muvafaqiyatli '{instance.course}' kursidan yangilandi"
         )
 
 
 @receiver(post_delete, sender=UploadVideo)
 def log_delete(sender, instance, **kwargs):
     ActivityLog.objects.create(
-        message=f"The video '{instance.title}' of the course '{instance.course}' has been deleted."
+        message=f"Video nomi '{instance.title}' muvafaqiyatli '{instance.course}' kursidan o`chirildi."
     )
 
 
 class CourseOffer(models.Model):
-    """NOTE: Only department head can offer semester courses"""
 
     dep_head = models.ForeignKey("accounts.DepartmentHead", on_delete=models.CASCADE)
 

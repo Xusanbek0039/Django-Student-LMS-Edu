@@ -32,7 +32,7 @@ class ProgramFilterView(FilterView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["title"] = "Programs"
+        context["title"] = "Fanlar"
         return context
 
 
@@ -44,11 +44,11 @@ def program_add(request):
         if form.is_valid():
             form.save()
             messages.success(
-                request, request.POST.get("title") + " program has been created."
+                request, request.POST.get("title") + " -fani qo'shildi."
             )
             return redirect("programs")
         else:
-            messages.error(request, "Correct the error(S) below.")
+            messages.error(request, "Quyidagi xato(lar)ni tuzating.")
     else:
         form = ProgramForm()
 
@@ -56,7 +56,7 @@ def program_add(request):
         request,
         "course/program_add.html",
         {
-            "title": "Add Program",
+            "title": "Fan qo'shish",
             "form": form,
         },
     )
@@ -95,7 +95,7 @@ def program_edit(request, pk):
         if form.is_valid():
             form.save()
             messages.success(
-                request, str(request.POST.get("title")) + " program has been updated."
+                request, str(request.POST.get("title")) + "-fani yangilandi."
             )
             return redirect("programs")
     else:
@@ -104,7 +104,7 @@ def program_edit(request, pk):
     return render(
         request,
         "course/program_add.html",
-        {"title": "Edit Program", "form": form},
+        {"title": "Fanni taxrirlash", "form": form},
     )
 
 
@@ -114,7 +114,7 @@ def program_delete(request, pk):
     program = Program.objects.get(pk=pk)
     title = program.title
     program.delete()
-    messages.success(request, "Program " + title + " has been deleted.")
+    messages.success(request, "Fan nomi-" + title + " muvafaqiyatli o'chirildi.")
 
     return redirect("programs")
 
@@ -159,11 +159,11 @@ def course_add(request, pk):
         if form.is_valid():
             form.save()
             messages.success(
-                request, (course_name + "(" + course_code + ")" + " has been created.")
+                request, (course_name + "(" + course_code + ")" + " yaratilgan.")
             )
             return redirect("program_detail", pk=request.POST.get("program"))
         else:
-            messages.error(request, "Correct the error(s) below.")
+            messages.error(request, "Quyidagi xato(lar)ni tuzating.")
     else:
         form = CourseAddForm(initial={"program": Program.objects.get(pk=pk)})
 
@@ -171,7 +171,7 @@ def course_add(request, pk):
         request,
         "course/course_add.html",
         {
-            "title": "Add Course",
+            "title": "Kurs qo'shish",
             "form": form,
             "program": pk,
             "users": users,
@@ -190,11 +190,11 @@ def course_edit(request, slug):
         if form.is_valid():
             form.save()
             messages.success(
-                request, (course_name + "(" + course_code + ")" + " has been updated.")
+                request, (course_name + "(" + course_code + ")" + " yangilandi.")
             )
             return redirect("program_detail", pk=request.POST.get("program"))
         else:
-            messages.error(request, "Correct the error(s) below.")
+            messages.error(request, "Quyidagi xato(lar)ni tuzating.")
     else:
         form = CourseAddForm(instance=course)
 
@@ -202,7 +202,7 @@ def course_edit(request, slug):
         request,
         "course/course_add.html",
         {
-            "title": "Edit Course",
+            "title": "Kursni taxrirlash",
             # 'form': form, 'program': pk, 'course': pk
             "form": form,
         },
@@ -215,7 +215,7 @@ def course_delete(request, slug):
     course = Course.objects.get(slug=slug)
     # course_name = course.title
     course.delete()
-    messages.success(request, "Course " + course.title + " has been deleted.")
+    messages.success(request, "Kurs nomi - " + course.title + " muvafaqiyatli o'chirildi.")
 
     return redirect("program_detail", pk=course.program.id)
 
@@ -256,7 +256,7 @@ class CourseAllocationFormView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["title"] = "Assign Course"
+        context["title"] = "Kursni taqsimlash"
         return context
 
 
@@ -267,7 +267,7 @@ class CourseAllocationFilterView(FilterView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["title"] = "Course Allocations"
+        context["title"] = "Kursni taqsimlash"
         return context
 
 
@@ -279,7 +279,7 @@ def edit_allocated_course(request, pk):
         form = EditCourseAllocationForm(request.POST, instance=allocated)
         if form.is_valid():
             form.save()
-            messages.success(request, "course assigned has been updated.")
+            messages.success(request, " tayinlangan kurs yangilandi.")
             return redirect("course_allocation_view")
     else:
         form = EditCourseAllocationForm(instance=allocated)
@@ -287,7 +287,7 @@ def edit_allocated_course(request, pk):
     return render(
         request,
         "course/course_allocation_form.html",
-        {"title": "Edit Course Allocated", "form": form, "allocated": pk},
+        {"title": "Kurs taqsimlash taxrirlandi ", "form": form, "allocated": pk},
     )
 
 
@@ -296,7 +296,7 @@ def edit_allocated_course(request, pk):
 def deallocate_course(request, pk):
     course = CourseAllocation.objects.get(pk=pk)
     course.delete()
-    messages.success(request, "successfully deallocate!")
+    messages.success(request, "muvafaqiyatli o'chirildi!")
     return redirect("course_allocation_view")
 
 
@@ -318,7 +318,7 @@ def handle_file_upload(request, slug):
             obj.save()
 
             messages.success(
-                request, (request.POST.get("title") + " has been uploaded.")
+                request, (request.POST.get("title") + "- nomli fayl yuklandi.")
             )
             return redirect("course_detail", slug=slug)
     else:
@@ -341,7 +341,7 @@ def handle_file_edit(request, slug, file_id):
         if form.is_valid():
             form.save()
             messages.success(
-                request, (request.POST.get("title") + " has been updated.")
+                request, (request.POST.get("title") + " yangilandi.")
             )
             return redirect("course_detail", slug=slug)
     else:
@@ -359,7 +359,7 @@ def handle_file_delete(request, slug, file_id):
     # file_name = file.name
     file.delete()
 
-    messages.success(request, (file.title + " has been deleted."))
+    messages.success(request, (file.title + " o'chirildi."))
     return redirect("course_detail", slug=slug)
 
 
@@ -378,7 +378,7 @@ def handle_video_upload(request, slug):
             obj.save()
 
             messages.success(
-                request, (request.POST.get("title") + " has been uploaded.")
+                request, (request.POST.get("title") + " yuklandi.")
             )
             return redirect("course_detail", slug=slug)
     else:
@@ -408,7 +408,7 @@ def handle_video_edit(request, slug, video_slug):
         if form.is_valid():
             form.save()
             messages.success(
-                request, (request.POST.get("title") + " has been updated.")
+                request, (request.POST.get("title") + " yangilandi.")
             )
             return redirect("course_detail", slug=slug)
     else:
@@ -426,7 +426,7 @@ def handle_video_delete(request, slug, video_slug):
     # video = UploadVideo.objects.get(slug=video_slug)
     video.delete()
 
-    messages.success(request, (video.title + " has been deleted."))
+    messages.success(request, (video.title + " o'chirildi."))
     return redirect("course_detail", slug=slug)
 
 
@@ -450,12 +450,12 @@ def course_registration(request):
             course = Course.objects.get(pk=ids[s])
             obj = TakenCourse.objects.create(student=student, course=course)
             obj.save()
-        messages.success(request, "Courses registered successfully!")
+        messages.success(request, "Kurslar muvaffaqiyatli ro'yxatdan o'tdi!")
         return redirect("course_registration")
     else:
         current_semester = Semester.objects.filter(is_current_semester=True).first()
         if not current_semester:
-            messages.error(request, "No active semester found.")
+            messages.error(request, "Faol semestr topilmadi.")
             return render(request, "course/course_registration.html")
 
         # student = Student.objects.get(student__pk=request.user.id)
@@ -529,7 +529,7 @@ def course_drop(request):
             course = Course.objects.get(pk=ids[s])
             obj = TakenCourse.objects.get(student=student, course=course)
             obj.delete()
-        messages.success(request, "Successfully Dropped!")
+        messages.success(request, "Muvaffaqiyatli tashlandi!")
         return redirect("course_registration")
 
 

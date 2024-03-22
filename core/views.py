@@ -271,7 +271,7 @@ def semester_update_view(request, pk):
                 set_session.is_current_session = True
                 set_session.save()
                 form.save()
-                messages.success(request, "Semester updated successfully !")
+                messages.success(request, "Oraliq muvafaqiyatli yangilandi !")
                 return redirect("semester_list")
         else:
             form = SemesterForm(request.POST, instance=semester)
@@ -289,11 +289,11 @@ def semester_update_view(request, pk):
 def semester_delete_view(request, pk):
     semester = get_object_or_404(Semester, pk=pk)
     if semester.is_current_semester:
-        messages.error(request, "You cannot delete current semester")
+        messages.error(request, "Siz joriy semestrni o'chira olmaysiz.")
         return redirect("semester_list")
     else:
         semester.delete()
-        messages.success(request, "Semester successfully deleted")
+        messages.success(request, "Semestr muvaffaqiyatli oʻchirildi.")
     return redirect("semester_list")
 
 

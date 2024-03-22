@@ -52,16 +52,16 @@ class StudentFilter(django_filters.FilterSet):
 
         # Change html classes and placeholders
         self.filters["student__username"].field.widget.attrs.update(
-            {"class": "au-input", "placeholder": "ID No."}
+            {"class": "au-input", "placeholder": "Foydalanuvchi nomi"}
         )
         self.filters["student__name"].field.widget.attrs.update(
-            {"class": "au-input", "placeholder": "Name"}
+            {"class": "au-input", "placeholder": "Ism"}
         )
         self.filters["student__email"].field.widget.attrs.update(
-            {"class": "au-input", "placeholder": "Email"}
+            {"class": "au-input", "placeholder": "E-Pochta"}
         )
         self.filters["program__title"].field.widget.attrs.update(
-            {"class": "au-input", "placeholder": "Program"}
+            {"class": "au-input", "placeholder": "Fan"}
         )
 
     def filter_by_name(self, queryset, name, value):

@@ -258,6 +258,7 @@ class QuizTake(FormView):
                 request,
                 f"Siz allaqachon bu imtihondan o'tgansiz va faqat bitta o'tirishga ruxsat berilgan.",
             )
+            
             return redirect("quiz_index", self.course.slug)
 
         return super(QuizTake, self).dispatch(request, *args, **kwargs)

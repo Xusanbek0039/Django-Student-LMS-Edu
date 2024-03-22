@@ -239,11 +239,11 @@ def semester_add_view(request):
                     set_session.is_current_session = True
                     set_session.save()
                     form.save()
-                    messages.success(request, "Semester added successfully.")
+                    messages.success(request, "Oraliq mavfaqiyatli qo'shildi.")
                     return redirect("semester_list")
 
             form.save()
-            messages.success(request, "Semester added successfully. ")
+            messages.success(request, "Oraliq mavfaqiyatli qo'shildi. ")
             return redirect("semester_list")
     else:
         form = SemesterForm()

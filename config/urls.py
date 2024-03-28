@@ -14,6 +14,7 @@ urlpatterns = [
     #     "jet/dashboard/", include("jet.dashboard.urls", "jet-dashboard")
     # ),  # Django JET dashboard URLS
     # path("blog", include("blogyek.urls")),
+
     path("", include("core.urls")),
     path("accounts/", include("accounts.urls")),
     path("programs/", include("course.urls")),

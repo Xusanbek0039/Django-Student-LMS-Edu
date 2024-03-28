@@ -1,20 +1,6 @@
 from django.urls import path
 
-from .views import (
-    home_view,
-    post_add,
-    edit_post,
-    delete_post,
-    session_list_view,
-    session_add_view,
-    session_update_view,
-    session_delete_view,
-    semester_list_view,
-    semester_add_view,
-    semester_update_view,
-    semester_delete_view,
-    dashboard_view,
-)
+from .views import *
 
 
 urlpatterns = [

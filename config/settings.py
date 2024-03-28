@@ -36,6 +36,8 @@ THIRD_PARTY_APPS = [
     "crispy_bootstrap5",
     "rest_framework",
     "django_filters",
+    "blog",
+
     
 ]
 
@@ -161,6 +163,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 LOGOUT_URL = 'accounts/logout/'
+
 # DRF setup
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
@@ -194,7 +197,13 @@ logging_settings = {
         },
     },
 }
-
+CKEDITOR_JQUERY_URL = os.path.join(STATIC_URL, 'js/jquery-3.6.0.min.js')
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'width': '100%',
+    },
+}
 
 
 # WhiteNoise configuration

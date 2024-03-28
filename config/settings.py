@@ -36,6 +36,7 @@ THIRD_PARTY_APPS = [
     "crispy_bootstrap5",
     "rest_framework",
     "django_filters",
+    
 ]
 
 # Custom apps
@@ -54,6 +55,8 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",

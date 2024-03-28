@@ -135,6 +135,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
@@ -184,24 +186,28 @@ STRIPE_PUBLISHABLE_KEY = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#logging
 # See https://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
-LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "formatters": {
-        "verbose": {
-            "format": "%(levelname)s %(asctime)s %(module)s "
-            "%(process)d %(thread)d %(message)s"
-        }
+import logging.config
+
+logging_settings = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': '/path/to/log/file.log',  # Log faylining to'liq manzili
+        },
     },
-    "handlers": {
-        "console": {
-            "level": "DEBUG",
-            "class": "logging.StreamHandler",
-            "formatter": "verbose",
-        }
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
     },
-    "root": {"level": "INFO", "handlers": ["console"]},
 }
+
+
 
 # WhiteNoise configuration
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"

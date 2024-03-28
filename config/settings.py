@@ -150,15 +150,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-# -----------------------------------
-# E-mail configuration
-
-# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-# EMAIL_HOST = "itpark0071@gmail.com"  # Gmail as the email host, but you can change it
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = "IT Park"
-# EMAIL_HOST_PASSWORD = ""
 
 # crispy config
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -181,12 +172,6 @@ REST_FRAMEWORK = {
 # Strip payment config
 STRIPE_SECRET_KEY = True
 STRIPE_PUBLISHABLE_KEY = True
-# # LOGGING
-# ------------------------------------------------------------------------------
-# https://docs.djangoproject.com/en/dev/ref/settings/#logging
-# See https://docs.djangoproject.com/en/dev/topics/logging for
-# more details on how to customize your logging configuration.
-import logging.config
 
 logging_settings = {
     'version': 1,

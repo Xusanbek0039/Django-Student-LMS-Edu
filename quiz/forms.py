@@ -54,6 +54,9 @@ class QuizAddForm(forms.ModelForm):
         return quiz
 
 
+
+
+
 class MCQuestionForm(forms.ModelForm):
     class Meta:
         model = MCQuestion

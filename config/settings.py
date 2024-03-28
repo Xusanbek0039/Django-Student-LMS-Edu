@@ -7,11 +7,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Yashirin kalit hamda debug turi
 SECRET_KEY = "kagbsckldsvsd35v41asdv241dsvdsv"
-DEBUG = False
+DEBUG = True
 
 
 # Domen kiriting
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 
 # Tekshiruv uchun yo'l

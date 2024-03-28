@@ -7,7 +7,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Yashirin kalit hamda debug turi
 SECRET_KEY = "kagbsckldsvsd35v41asdv241dsvdsv"
-DEBUG = True
+DEBUG = False
 
 
 # Domen kiriting

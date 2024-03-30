@@ -44,6 +44,7 @@ THIRD_PARTY_APPS = [
     "blog",
     "bot",
     "online_users",
+    'django.contrib.humanize',
 
     
 ]

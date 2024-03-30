@@ -10,8 +10,8 @@ from django.urls import path, include
 # )
 from .views import *
 # from .forms import EmailValidationOnForgotPassword
-
-
+from bot import views
+from chat import urls
 urlpatterns = [
     path("", include("django.contrib.auth.urls")),
     path("admin_panel/", admin_panel, name="admin_panel"),

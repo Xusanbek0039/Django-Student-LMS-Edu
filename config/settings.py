@@ -41,7 +41,6 @@ THIRD_PARTY_APPS = [
     "crispy_bootstrap5",
     "rest_framework",
     "django_filters",
-    "blog",
     "bot",
     "online_users",
     'django.contrib.humanize',

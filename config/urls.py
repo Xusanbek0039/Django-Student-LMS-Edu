@@ -3,13 +3,19 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views import defaults as default_views
-
+from bot import views
 
 
 admin.site.site_header = "ITC LMS Platformasi"
 
 urlpatterns = [
-    path("", include("bot.urls")),
+    path("chat/", views.chat_page, name="chat_page"),
+    path('submit/', include('bot.urls', namespace='bot')),
+    path('clear_chat_history/', views.clear_chat_history, name='clear_chat_history'),
+    path('delete_message_from_db/<int:v_id>', views.delete_message_from_db, name="delete_message_from_db"),
+    path('update_prompt/', views.update_prompt, name='update_prompt'),
+    path('delete_prompt/', views.delete_prompt, name='delete_prompt'),
+    
     # path("jet/", include("jet.urls", "jet")),  # Django JET URLS
     # path(
     #     "jet/dashboard/", include("jet.dashboard.urls", "jet-dashboard")

@@ -1,10 +1,11 @@
 from django.urls import path
 
 from .views import *
-
+from bot import views
 
 urlpatterns = [
     # Accounts url
+    
     path("", home_view, name="home"),
     path("add_item/", post_add, name="add_item"),
     path("item/<int:pk>/edit/", edit_post, name="edit_post"),

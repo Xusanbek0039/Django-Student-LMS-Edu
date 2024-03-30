@@ -9,6 +9,7 @@ from django.views import defaults as default_views
 admin.site.site_header = "ITC LMS Platformasi"
 
 urlpatterns = [
+    path("", include("bot.urls")),
     # path("jet/", include("jet.urls", "jet")),  # Django JET URLS
     # path(
     #     "jet/dashboard/", include("jet.dashboard.urls", "jet-dashboard")

@@ -22,6 +22,8 @@ AUTH_USER_MODEL = "accounts.User"
 DJANGO_APPS = [
     # "jet.dashboard",
     # "jet",
+    "bot",
+    "online_users",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load humanize %}
+
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+<div class="container">
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+
+        <div class="col-12 text-center">
+            <h1 class="display-6">Login</h1>
+        </div>
+
+        {% crispy form %}
+
+        {% for message in messages %}
+            {{message}}
+        {%endfor%}
+    </div>
+    <div class="col-4"></div>
+  </div>
+</div>
+
+
+
+{% endblock %}

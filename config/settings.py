@@ -22,8 +22,7 @@ AUTH_USER_MODEL = "accounts.User"
 DJANGO_APPS = [
     # "jet.dashboard",
     # "jet",
-    "bot",
-    "online_users",
+
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -32,6 +31,10 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
 ]
 
+MIDDLEWARE_CLASSES = (
+    'online_users.middleware.OnlineNowMiddleware',
+)
+
 # Third party apps
 THIRD_PARTY_APPS = [
     "crispy_forms",
@@ -39,6 +42,8 @@ THIRD_PARTY_APPS = [
     "rest_framework",
     "django_filters",
     "blog",
+    "bot",
+    "online_users",
 
     
 ]

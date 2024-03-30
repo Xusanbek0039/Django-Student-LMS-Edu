@@ -30,3 +30,4 @@ django-storages
 django-anymail
 pillow
 reportlab
+django-online-users==0.3

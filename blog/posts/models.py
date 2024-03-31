@@ -7,16 +7,16 @@ from django.db import models
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=50, verbose_name='Kategori Adı')
-    slug = models.SlugField(unique=True, help_text='Burayı manuel olarak değiştirmemeniz önerilir.')
+    name = models.CharField(max_length=50, verbose_name='Mavzunomi')
+    slug = models.SlugField(unique=True, help_text='Bu joyni qo\'lda o\'zgartirmaslik tavsiya etiladi.')
 
     def __str__(self):
         return self.name
 
 
 class Tag(models.Model):
-    name = models.CharField(max_length=50, verbose_name='Etiket Adı')
-    slug = models.SlugField(unique=True, help_text='Burayı manuel olarak değiştirmemeniz önerilir.')
+    name = models.CharField(max_length=50, verbose_name='Yorliq nomi')
+    slug = models.SlugField(unique=True, help_text='Bu joyni qo\'lda o\'zgartirmaslik tavsiya etiladi.')
 
     def __str__(self):
         return self.name
@@ -32,11 +32,11 @@ class HitCount(models.Model):
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    tags = models.ManyToManyField(Tag, blank=True, verbose_name='Etiketler')
+    tags = models.ManyToManyField(Tag, blank=True, verbose_name='Yorliqlar')
     views = models.ManyToManyField(HitCount, related_name='post_views', blank=True)
     title = models.CharField(max_length=75, verbose_name='Başlık')
-    slug = models.SlugField(unique=True, help_text='Burayı manuel olarak değiştirmemeniz önerilir.')
-    image = models.ImageField(upload_to='posts/%Y/%m/%d/', verbose_name='Görsel')
+    slug = models.SlugField(unique=True, help_text='Bu joyni qo\'lda o\'zgartirmaslik tavsiya etiladi.')
+    image = models.ImageField(upload_to='posts/%Y/%m/%d/', verbose_name='Rasm')
     content = RichTextField(verbose_name='İçerik')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Oluşturulma Tarihi')
     available = models.BooleanField(default=True, verbose_name='Aktif/Pasif')

@@ -76,12 +76,12 @@ def ContactView(request):
         try:
             html_content = render_to_string('partials/mail_template.html', {'email': email, 'message': message}, request)
             text_content = strip_tags(html_content)
-            mail = EmailMultiAlternatives(subject, text_content, settings.EMAIL_HOST_USER, ['example@gmail.com'])
+            mail = EmailMultiAlternatives(subject, text_content, settings.EMAIL_HOST_USER, ['itpark0071@gmail.com'])
             mail.attach_alternative(html_content, 'text/html')
             mail.send()
-            messages.success(request, 'Your message has been sent.')
+            messages.success(request, 'Sizning habaringiz yuborildi.')
         except:
-            messages.error(request, 'We encountered an error sending your message, try again later..')
+            messages.error(request, 'Xabaringizni yuborishda xatolikka duch keldik, keyinroq qayta urinib ko‘ring.')
         return render(request, 'contact.html', context)
 
     return render(request, 'contact.html', context)

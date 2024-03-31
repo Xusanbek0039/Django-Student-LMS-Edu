@@ -12,7 +12,7 @@
     <div class="col-md-12 col-lg-8 main-content">
         <img src="{{ post.image.url }}" alt="Image" class="img-fluid mb-5 w-100">
         <div class="post-meta">
-            <span class="author"><img src="{{ post.author.userdetail.image.url }}" alt="Colorlib" class="mr-2"> {{ post.author.username | title }} &bullet; </span>
+            <span class="author"><img src="{{ request.user.picture.url }}" alt="Colorlib" class="mr-2"> {{ post.author.username | title }} &bullet; </span>
             <span>{{ post.created | date }} &bullet;</span>
             <span class="catyek">{{ post.category.name }}  &bullet;</span>
             <span><span class="fa fa-eye"></span> {{ post.getHitCount }}</span>
@@ -36,7 +36,9 @@
             <div class="col-md-12">
                 <div class="sidebar-box shadow shadow-sm">
                     <div class="bio text-center">
-                        <img style="height: 130px; width: 130px!important; max-width: 130px" src="{{ post.author.userdetail.image.url }}" class="img-fluid">
+                        <img style="height: 130px; width: 130px!important; max-width: 130px" src="{{ request.user.picture.url }}" class="img-fluid">
+                        <p class="small text-muted text-center mb-0">
+							So'ngi faollik: {{ request.user.last_login|date }}</p>
                         <div class="bio-body">
                             <h2>
                                 {% if post.author.get_full_name %}
@@ -55,12 +57,12 @@
 
 
         <div class="pt-5">
-            <p>Category:  <a href="{% url 'posts:posts_by_category' post.category.slug %}">{{ post.category.name }}</a>  {% if post.tags.all %}Tags: {% for tag in post.tags.all %} <a href="{% url 'posts:posts_by_tag' tag.slug %}">#{{ tag.slug }}</a>{% if not forloop.last %},{% endif %}{% endfor %}{% endif %}</p>
+            <p>Mavzu:  <a href="{% url 'posts:posts_by_category' post.category.slug %}">{{ post.category.name }}</a>  {% if post.tags.all %}Tags: {% for tag in post.tags.all %} <a href="{% url 'posts:posts_by_tag' tag.slug %}">#{{ tag.slug }}</a>{% if not forloop.last %},{% endif %}{% endfor %}{% endif %}</p>
         </div>
 
 
         <div class="pt-5">
-            <h3 class="mb-5">{{ comments.count }} Comments</h3>
+            <h3 class="mb-5">{{ comments.count }} Izohlar</h3>
             <ul class="comment-list">
 
                 {% if comments %}
@@ -82,7 +84,7 @@
                     {% endfor %}
                 {% else %}
                     <div class="alert alert-primary" role="alert">
-                        This article has not been commented yet, write the first comment!
+                        Ushbu postga izoh berilmagan birinchi bo'lib izoh kiritishingiz mumkin!
                     </div>
                 {% endif %}
 
@@ -93,15 +95,14 @@
 
 
             {% if request.user.is_authenticated %}
-                <div class="comment-form-wrap pt-5 text-center">
+                <!-- <div class="comment-form-wrap pt-5 text-center">
                     {#                    <h3 class="mb-5">Leave a comment</h3>#}
-                    <!-- Post Comment Link YEK -->
                     <div class="row mb-3">
                         <div class="col-md-12 text-center text-capitalize" style="height:40px">
                             <a onmouseover='$(this).addClass("btn btn-sm btn-primary")' onmouseout='$(this).removeClass("btn btn-sm btn-primary")' href="{% url 'posts:addComment' post.id %}"> Leave a comment <i class="fa fa-arrow-right"></i></a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             {% endif %}
         </div>
     </div>
@@ -116,7 +117,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="mb-3 ">Related Post</h2>
+                    <h2 class="mb-3 ">O'xshash postlar</h2>
                 </div>
             </div>
             <div class="row">

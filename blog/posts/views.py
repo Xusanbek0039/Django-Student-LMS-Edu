@@ -25,7 +25,7 @@ class CommentView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         form.instance.post_id = self.kwargs['pk']
-        messages.success(self.request, 'Comment successfully added.')
+        messages.success(self.request, 'Fikr qo‘shildi.')
         return super().form_valid(form)
 
     def get_success_url(self):
@@ -50,7 +50,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
             counter += 1
 
         form.save()
-        messages.success(self.request, 'Your post has been successfully created.')
+        messages.success(self.request, 'Sizning postingiz muvaffaqiyatli yaratildi.')
         return super(PostCreateView, self).form_valid(form)
 
     def get_success_url(self):
@@ -67,7 +67,7 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
     def dispatch(self, request, *args, **kwargs):
         post = self.get_object()
         if post.author != self.request.user:
-            raise Http404("You are not allowed to edit this Post")
+            raise Http404("Siz ushbu postni tahrirlashingiz mumkin emas")
         return super(PostUpdateView, self).dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
@@ -84,7 +84,7 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
                 counter += 1
 
         form.save()
-        messages.success(self.request, 'Your post has been successfully updated.')
+        messages.success(self.request, 'Sizning postingiz muvaffaqiyatli yangilandi.')
         return super(PostUpdateView, self).form_valid(form)
 
     def get_success_url(self):
@@ -99,11 +99,11 @@ class PostDeleteView(LoginRequiredMixin, DeleteView):
     def get_object(self, queryset=None):
         post = super(PostDeleteView, self).get_object()
         if not post.author == self.request.user:
-            raise Http404("You are not allowed to delete this Post")
+            raise Http404("Ushbu postni oʻchirishga ruxsat berilmagan")
         return post
 
     def delete(self, request, *args, **kwargs):
-        messages.success(self.request, 'Post successfully deleted.')
+        messages.success(self.request, 'Post muvafaqiyatli o\'chirildi.')
         return super(PostDeleteView, self).delete(request, *args, **kwargs)
 
 
@@ -118,14 +118,14 @@ def PostList(request, category_slug=None, tag_slug=None):
     if category_slug is not None:
         category_page = get_object_or_404(Category, slug=category_slug)
         posts = Post.objects.filter(available=True, category=category_page).order_by('-created')
-        context.update({'title': 'Posts By Category'})
+        context.update({'title': 'Post mavzusi'})
     elif tag_slug is not None:
         tag_page = get_object_or_404(Tag, slug=tag_slug)
         posts = Post.objects.filter(available=True, tags=tag_page).order_by('-created')
-        context.update({'title': 'Posts By Tag'})
+        context.update({'title': 'Posts tegi'})
     else:
         posts = Post.objects.all().filter(available=True).order_by('-created')
-        context.update({'title': 'All Posts'})
+        context.update({'title': 'Barcha postlar'})
 
     paginator = Paginator(posts, 8)  # Show 8 object per page.
     page_number = request.GET.get('page')
@@ -187,6 +187,6 @@ def search(request):
         'post_list': posts,
         'categories': categories,
         'tags': tags,
-        'title': 'Search Results'
+        'title': 'Izlash natijalari'
     }
     return render(request, 'posts.html', context)

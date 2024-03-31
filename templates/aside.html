@@ -43,7 +43,7 @@
 				<a href="{% url 'home' %}"><i class="fas fa-home" ></i>Bosh saxifa</a>
 			</li>
 			<li class="{% if request.path == cp %}active{% endif %}">
-				<a href="{% url 'blog' %}"><i class="fas fa-book-open"></i>Blog saxifa</a>
+				<a href="{% url 'blog' %}" target="_blank"><i class="fas fa-book-open"></i>Blog saxifa</a>
 			</li>   
 			<li class="{% if request.path == prof %}active{% endif %}">
 				<a href="{% url 'profile' %}"><i class="fas fa-user"></i>Shaxsiy hisob</a>
@@ -120,7 +120,7 @@
 				<a href="{% url 'edit_profile' %}"><i class="fas fa-cogs"></i>Hisob sozlamalari</a>
 			</li>
 			<li class="">
-				<a href="{% url 'chat_page' %}"><i class="fas fa-user-tie"></i>Gemini AI Yordam</a>
+				<a href="{% url 'chat_page' %}" target="_blank"><i class="fas fa-user-tie"></i>Gemini AI Yordam</a>
 			</li>
 
 			<li class="{% if request.path == cp %}active{% endif %}">

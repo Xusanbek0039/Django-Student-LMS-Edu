@@ -1,6 +1,7 @@
 
 
 import os
+from django.contrib.messages import constants as messages
 
 # Base dir
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -16,7 +17,7 @@ ALLOWED_HOSTS = ["127.0.0.1"]
 
 # Tekshiruv uchun yo'l
 AUTH_USER_MODEL = "accounts.User"
-
+# AUTH_USER_MODEL = "users.User"
 # Application definition
 
 DJANGO_APPS = [
@@ -44,6 +45,11 @@ THIRD_PARTY_APPS = [
     "bot",
     "online_users",
     'django.contrib.humanize',
+    'blog.pages.apps.PagesConfig',
+    'blog.posts',
+    'ckeditor',
+    # 'users',
+    # 'blog',
 
     
 ]
@@ -110,6 +116,25 @@ DATABASES = {
 }
 
 
+import os
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'width': '100%',
+    },
+}
+
+
+# MESSAGES
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}
+
+
+
+
+
 
 
 # https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-DEFAULT_AUTO_FIELD
@@ -152,6 +177,7 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "blog/static"),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")

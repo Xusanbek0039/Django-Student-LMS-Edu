@@ -18,7 +18,7 @@ from .models import *
 
 
 class CommentView(LoginRequiredMixin, CreateView):
-    template_name = 'comment_create.html'
+    template_name = 'blog/templates/comment_create.html'
     model = Comment
     fields = ['content']
 

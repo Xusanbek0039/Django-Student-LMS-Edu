@@ -389,3 +389,21 @@ class ParentAdd(CreateView):
 #             return redirect('student_list')
 #     else:
 #         form = ParentAddForm(request.POST)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

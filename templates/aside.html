@@ -41,6 +41,9 @@
 			{% endif %}
 			<li class="{% if request.path == hom %}active{% endif %}">
 				<a href="{% url 'home' %}"><i class="fas fa-home" ></i>Bosh saxifa</a>
+			</li>
+			<li class="{% if request.path == cp %}active{% endif %}">
+				<a href="{% url 'blog' %}"><i class="fas fa-book-open"></i>Blog saxifa</a>
 			</li>   
 			<li class="{% if request.path == prof %}active{% endif %}">
 				<a href="{% url 'profile' %}"><i class="fas fa-user"></i>Shaxsiy hisob</a>
@@ -119,6 +122,7 @@
 			<li class="">
 				<a href="{% url 'chat_page' %}"><i class="fas fa-user-tie"></i>Gemini AI Yordam</a>
 			</li>
+
 			<li class="{% if request.path == cp %}active{% endif %}">
 				<a href="{% url 'change_password' %}"><i class="fas fa-key"></i>Kirish parolini o'zgartirish</a>
 			</li>

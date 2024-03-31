@@ -11,6 +11,8 @@
 # Ishga tushurish uchun:
 
 **1-qadam:**
+
+Saytni demo holatda ko'rish uchun>>> https://itclms.uz
 ```
 https://github.com/Xusanbek0071/Django-Student-LMS-Edu.git
 ```

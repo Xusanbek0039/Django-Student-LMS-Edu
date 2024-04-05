@@ -1,209 +1,77 @@
-<!DOCTYPE html>
-<html lang="uz">
 {% extends 'registration/registration_base.html' %}
 {% block title %}Student LMS | Hisobga Kirish{% endblock title %}
 {% load crispy_forms_tags %}
 {% block content %}
+{% load static %}
 
-<head>
-<style>
-    
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
-        * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'poppins',sans-serif;
-        }
 
-        body {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        background-image: url(https://user-images.githubusercontent.com/13468728/233847739-219cb494-c265-4554-820a-bd3424c59065.jpg);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        }
+<body style="background-image: url({% static 'img/login-bac.jpeg' %}); background-size: cover;">
 
-        section {
-            position: relative;
-            max-width: 400px;
-            background-color: transparent;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            border-radius: 20px;
-            backdrop-filter: blur(55px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem 3rem;
-        }
-
-        h1 {
-            font-size: 2rem;
-            color: #fff;
-            text-align: center;
-        }
-
-        .inputbox {
-            position: relative;
-            margin: 30px 0;
-            max-width: 310px;
-            border-bottom: 2px solid #fff;
-        }
-
-        .inputbox label {
-            position: absolute;
-            top: 50%;
-            left: 5px;
-            transform: translateY(-50%);
-            color: #fff;
-            font-size: 1rem;
-            pointer-events: none;
-            transition: all 0.5s ease-in-out;
-        }
-
-        input:focus ~ label, 
-        input:valid ~ label {
-            top: -5px;
-        }
-
-        .inputbox input {
-            width: 100%;
-            height: 60px;
-            background: transparent;
-            border: none;
-            outline: none;
-            font-size: 1rem;
-            padding: 0 35px 0 5px;
-            color: #fff;
-        }
-
-        .inputbox ion-icon {
-            position: absolute;
-            right: 8px;
-            color: #fff;
-            font-size: 1.2rem;
-            top: 20px;
-        }
-
-        .forget {
-            margin: 35px 0;
-            font-size: 0.85rem;
-            color: #fff;
-            display: flex;
-            justify-content: space-between;
+  <div class="col-md-4 mx-auto mt-5" >
+    <div class="card" style="background-color: rgba(51, 50, 50, 0.685);">
+      <div class="form-title" >
+        <img src="{% static 'img/favicon.ico'%}" alt="Nimadur xato bajarildi!"  width="30" height="30">
+        Shaxsiy Hisobga kirish 
+      </div>
+      <div class="card-body">
+          <form action="" method="POST" id="login-form">{% csrf_token %}
+            <div class="form-group mb-3"  style="color: rgb(255, 233, 233);">
+                <label class="mb-2" for="username_id"><i class="fas fa-address-card me-2" style="color: rgb(255, 255, 255);" ></i>Foydalanuvchi nomi</label>
+                <input placeholder="Login kiriting" type="text" name="username" id="username_id" class="form-control" required>
+                <div id="message-wrapper"></div>
+            </div>
+            <div class="form-group mb-3"  style="color: rgb(255, 255, 255);">
+                <label class="mb-2" for="password_id"><i class="fas fa-key me-2" placeholder="Parolingiz"></i>Fayodalanuvchi paroli</label>
+                <input placeholder="Parol kiriting" type="password" name="password" id="password_id" class="form-control" required >
+                
+            </div>
+            {% if form.errors %}
+                  <span class="text-danger"><i class="fas fa-exclamation-circle"></i> Ism & Parol noto'g'ri!</span><br>
+            {% endif %}
         
-        }
-
-        .forget label {
-            display: flex;
-            align-items: center;
-        }
-
-        .forget label input {
-            margin-right: 3px;
-        }
-
-        .forget a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .forget a:hover {
-            text-decoration: underline;
-        }
-
-        button {
-            width: 100%;
-            height: 40px;
-            border-radius: 40px;
-            background-color: rgb(255, 255,255, 1);
-            border: none;
-            outline: none;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.4s ease;
-        }
-
-        button:hover {
-        background-color: rgb(255, 255,255, 0.5);
-        }
-
-        .register {
-            font-size: 0.9rem;
-            color: #fff;
-            text-align: center;
-            margin: 25px 0 10px;
-        }
-
-        .register p a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: 600;
-        }
-
-        .register p a:hover {
-            text-decoration: underline;
-        }
-
-</style>
-    
-    <title>Hisobga kirish</title>
-</head>
-<body>
-  <section>
-      <form action="" method="POST" id="login-form">
-          {% csrf_token %}
-          <h1>Hisobga kirish</h1>
-          <div class="inputbox">
-              <ion-icon name="mail-outline"></ion-icon>
-              <input type="text" name="username" id="username_id" class="form-control" required>
-              <label for="username_id">Username </label>
+            <center><button type="submit" class="btn btn-primary" id="login-btn"><i class="fas fa-sign-in-alt"></i><small> Tizimga kirish </small></button></center>
+          </form>
+          <br>
+          <div class="login-bottom" style="color: rgba(240, 248, 255, 0); backgrgba(0, 0, 0, 0) 0, 0, 0.345); display: inline-block;" >
+            <a href="https://forms.gle/Vbuqhwfx7CdB26si9" class="link" >Parolni unutdingizmi ?</a><br>
+            <a href="https://t.me/mbin_dev_0071" class="link" >Kirish bo'yicha muommoga duch keldingizmi ?</a>
           </div>
-          <div class="inputbox">
-              <ion-icon name="lock-closed-outline"></ion-icon>
-              <input type="password" id="password_id" name="password" class="form-control" required>
-              <label for="password_id">Parolingiz</label>
-          </div>
-
-          <button type="submit" class="btn btn-primary" id="login-btn"><i ></i> Hisobga kirish</button>
-      </form>
-
-  </section>
-  <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  <script>
-      $('#login-form').submit(function (e) {
-          e.preventDefault();
-          $('#login-btn').addClass('disabled');
-          $('#login-btn').html(`<i class="fas fa-sign-in-alt"></i> Hisobga kirish...`);
-
-          // Qo'shimcha kodlar
-      });
-
-      $("#username_id").on("input", function () {
-          var username = $(this).val();
-
-          $.ajax({
-              url: "/accounts/ajax/validate-username/",
-              data: {
-                  username: username
-              },
-              dataType: 'json',
-              success: function (data) {
-                  if (data.is_taken) {
-                      console.log(data.is_taken);
-                      $('#message-wrapper').html(`<p class="my-2 text-danger"><span class="bg-error p-2"><b>${username}</b> already taken :( try another one </span></p>`);
-                  } else {
-                      $('#message-wrapper').html(`<p class="my-2 text-success"><span class="bg-correct p-2"><b>${username}</b> is valid </span></p>`);
-                  }
-              }
-          });
-      });
-  </script>
+        </div>
+    </div>
+  </div>
 </body>
+{% endblock content %}
+
+{% block js %}
+
+<script>
+  $('#login-form').submit(function (e) {
+    // e.preventDefault();
+    $('#login-btn').addClass('disabled')
+    $('#login-btn').html(`<i class="fas fa-sign-in-alt"></i> Hisob tekshirilmoqda...`)
+  })
+
+  $("#username").on("input", function () {
+    username = $(this).val();
+
+    $.ajax({
+      url: "/accounts/ajax/validate-username/",
+      data: {
+        username: username
+      },
+      dataType: 'json',
+      success: function (data) {
+        if (data.is_taken) {
+          console.log(data.is_taken);
+          $('#message-wrapper').html(`<p class="my-2 text-danger"><span class="bg-error p-2"><b>${username}</b> already taken :( try another one </span></p>`)
+        }
+        else {
+          $('#message-wrapper').html(`<p class="my-2 text-success"><span class="bg-correct p-2"><b>${username}</b> is valid </span></p>`)
+        }
+      }
+
+    })
+  })
+</script>
 {% endblock %}

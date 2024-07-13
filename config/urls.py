@@ -4,28 +4,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views import defaults as default_views
 from bot import views
-from blog.pages.views import *
-from blog.posts.views import *
 
 admin.site.site_header = "ITC LMS Platformasi"
 
 urlpatterns = [
-    # blog page urllar
-    path('blog/', LatestPostListView.as_view(), name='blog'),
-    path('about/', AboutView.as_view(), name='blogabout'),
-    path('contact/', ContactView, name='blogcontact'),
-    path('blogsearch/', search, name='blogsearch'),
-    path('blog/', include('blog.pages.urls', namespace='blog')),
-    # path('posts', PostList, name='posts'),
-    path('create/', PostCreateView.as_view(), name='postCreate'),
-    path('update/<slug:slug>/', PostUpdateView.as_view(), name='postUpdate'),
-    path('delete/<int:pk>/', PostDeleteView.as_view(), name='postDelete'),
-    path('categories/<slug:category_slug>', PostList, name='posts_by_category'),
-    path('tags/<slug:tag_slug>', PostList, name='posts_by_tag'),
-    path('<slug:post_category_slug>/<int:id>/<slug:slug>/', PostDetailView.as_view(), name='postDetail'),
-    path('blogsearch/', search, name='blogsearch'),
-    path('comment/<int:pk>/', CommentView.as_view(), name='addComment'),
-    path('posts/', include('blog.posts.urls', namespace='posts')),
 
     # AI bo'limi urllari
     path("chat/", views.chat_page, name="chat_page"),

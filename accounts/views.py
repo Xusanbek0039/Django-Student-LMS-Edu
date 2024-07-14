@@ -407,3 +407,41 @@ class ParentAdd(CreateView):
 
 
 
+from django.shortcuts import render, redirect
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes, force_text
+from django.contrib.auth.models import User
+from django.core.mail import send_mail
+from django.urls import reverse
+from django.contrib import messages
+
+def password_reset_request(request):
+    if request.method == "POST":
+        email = request.POST['email']
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            messages.error(request, "Foydalanuvchi topilmadi")
+            return render(request, 'registration/password_reset.html')
+
+        # Parol tiklash tokenini generatsiya qilish
+        token_generator = PasswordResetTokenGenerator()
+        token = token_generator.make_token(user)
+        uid = urlsafe_base64_encode(force_bytes(user.pk))
+
+        # Parol tiklash URLsi
+        reset_url = request.build_absolute_uri(reverse('password_reset_confirm', kwargs={'uidb64': uid, 'token': token}))
+
+        # Emailga jo'natish
+        send_mail(
+            'Parolni tiklash',
+            f"Parolni tiklash uchun quyidagi URLni bosing: {reset_url}",
+            'sender@example.com',
+            [user.email],
+            fail_silently=False,
+        )
+        messages.success(request, "Emailga parolni tiklash havolasi yuborildi.")
+        return redirect('password_reset_done')
+
+    return render(request, 'registration/password_reset.html')

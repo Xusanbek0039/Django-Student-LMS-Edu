@@ -30,7 +30,9 @@ urlpatterns = [
     path("parents/add/", ParentAdd.as_view(), name="add_parent"),
     path("ajax/validate-username/", validate_username, name="validate_username"),
     
-    # ################################################################
+
+
+
 ]
 
 
@@ -38,3 +40,13 @@ urlpatterns = [
 
 
 
+from django.urls import path
+from django.contrib.auth import views as auth_views
+from .views import password_reset_request
+
+urlpatterns = [
+    path('accounts/password_reset/', password_reset_request, name='password_reset'),
+    path('accounts/password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='registration/password_reset_done.html'), name='password_reset_done'),
+    path('accounts/reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='registration/password_reset_confirm.html'), name='password_reset_confirm'),
+    path('accounts/reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='registration/password_reset_complete.html'), name='password_reset_complete'),
+]

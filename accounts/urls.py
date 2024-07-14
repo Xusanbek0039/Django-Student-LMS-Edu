@@ -29,32 +29,7 @@ urlpatterns = [
     path("students/<int:pk>/delete/", delete_student, name="student_delete"),
     path("parents/add/", ParentAdd.as_view(), name="add_parent"),
     path("ajax/validate-username/", validate_username, name="validate_username"),
-    # path("register/", register, name="register"),
-    # path('add-student/', StudentAddView.as_view(), name='add_student'),
-    # path('programs/course/delete/<int:pk>/', course_delete, name='delete_course'),
-    # Setting urls
-    # path('profile/<int:pk>/edit/', profileUpdateView, name='edit_profile'),
-    # path('profile/<int:pk>/change-password/', changePasswordView, name='change_password'),
-    # ################################################################
-    # path('login/', LoginView.as_view(), name='login'),
-    # path('logout/', LogoutView.as_view(), name='logout', kwargs={'next_page': '/'}),
-    # path('password-reset/', PasswordResetView.as_view(
-    #     form_class=EmailValidationOnForgotPassword,
-    #     template_name='registration/password_reset.html'
-    # ),
-    #      name='password_reset'),
-    # path('password-reset/done/', PasswordResetDoneView.as_view(
-    #     template_name='registration/password_reset_done.html'
-    # ),
-    #      name='password_reset_done'),
-    # path('password-reset-confirm/<uidb64>/<token>/', PasswordResetConfirmView.as_view(
-    #     template_name='registration/password_reset_confirm.html'
-    # ),
-    #      name='password_reset_confirm'),
-    # path('password-reset-complete/', PasswordResetCompleteView.as_view(
-    #     template_name='registration/password_reset_complete.html'
-    # ),
-    #      name='password_reset_complete')
+    
     # ################################################################
 ]
 

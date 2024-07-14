@@ -12,7 +12,7 @@ DEBUG = True
 
 
 # Domen kiriting
-ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Tekshiruv uchun yo'l
@@ -162,7 +162,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = "uz-UZ"
+LANGUAGE_CODE = "ru"
 
 TIME_ZONE = "Asia/Tashkent"
 

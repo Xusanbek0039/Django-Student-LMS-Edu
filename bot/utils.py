@@ -8,7 +8,7 @@ def generate_content_bot(msg):
     while 1 == 1:
         try:
             print("Avrobot yozmoqda....")
-            genai.configure(api_key='AIzaSyBGAVkETMqewnR0mfbsTXgGy0ImWa7EMMk')
+            genai.configure(api_key='AIzaSyA9G7mUl8mXSZTWxZfQfTe50pssw6H-Uok')
             model = genai.GenerativeModel('gemini-1.0-pro-001')
             response = model.generate_content(msg)
             yanit = response.text

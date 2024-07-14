@@ -8,6 +8,11 @@ from django.urls import path, include
 #     LoginView,
 #     LogoutView,
 # )
+from django.urls import path
+from django.contrib.auth import views as auth_views
+from .views import password_reset_request
+
+
 from .views import *
 # from .forms import EmailValidationOnForgotPassword
 from bot import views
@@ -31,22 +36,44 @@ urlpatterns = [
     path("ajax/validate-username/", validate_username, name="validate_username"),
     
 
-
-
-]
-
-
-
-
-
-
-from django.urls import path
-from django.contrib.auth import views as auth_views
-from .views import password_reset_request
-
-urlpatterns = [
     path('accounts/password_reset/', password_reset_request, name='password_reset'),
     path('accounts/password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='registration/password_reset_done.html'), name='password_reset_done'),
     path('accounts/reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='registration/password_reset_confirm.html'), name='password_reset_confirm'),
     path('accounts/reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='registration/password_reset_complete.html'), name='password_reset_complete'),
+
+
+    # path("register/", register, name="register"),
+    # path('add-student/', StudentAddView.as_view(), name='add_student'),
+    # path('programs/course/delete/<int:pk>/', course_delete, name='delete_course'),
+    # Setting urls
+    # path('profile/<int:pk>/edit/', profileUpdateView, name='edit_profile'),
+    # path('profile/<int:pk>/change-password/', changePasswordView, name='change_password'),
+    # ################################################################
+    # path('login/', LoginView.as_view(), name='login'),
+    # path('logout/', LogoutView.as_view(), name='logout', kwargs={'next_page': '/'}),
+    # path('password-reset/', PasswordResetView.as_view(
+    #     form_class=EmailValidationOnForgotPassword,
+    #     template_name='registration/password_reset.html'
+    # ),
+    #      name='password_reset'),
+    # path('password-reset/done/', PasswordResetDoneView.as_view(
+    #     template_name='registration/password_reset_done.html'
+    # ),
+    #      name='password_reset_done'),
+    # path('password-reset-confirm/<uidb64>/<token>/', PasswordResetConfirmView.as_view(
+    #     template_name='registration/password_reset_confirm.html'
+    # ),
+    #      name='password_reset_confirm'),
+    # path('password-reset-complete/', PasswordResetCompleteView.as_view(
+    #     template_name='registration/password_reset_complete.html'
+    # ),
+    #      name='password_reset_complete')
+    # ################################################################
 ]
+
+
+
+
+
+
+

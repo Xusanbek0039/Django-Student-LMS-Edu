@@ -45,3 +45,4 @@ crispy-bootstrap5
 django-rest-framework
 filter
 pillow 
+reportlab

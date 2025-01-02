@@ -46,3 +46,4 @@ django-rest-framework
 filter
 pillow 
 reportlab
+whitenoise

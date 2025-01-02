@@ -42,3 +42,6 @@ soupsieve==2.2.1
 sqlparse
 django-crispy-forms
 crispy-bootstrap5
+django-rest-framework
+filter
+pillow 

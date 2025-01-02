@@ -8,6 +8,8 @@ from django.urls import path, include
 #     LoginView,
 #     LogoutView,
 # )
+from django.utils.encoding import force_bytes, force_str
+
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from .views import password_reset_request

@@ -126,7 +126,7 @@ ASGI_APPLICATION = "config.asgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'baza.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -192,7 +192,6 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    os.path.join(BASE_DIR, "blog/static"),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
